@@ -1,3 +1,2 @@
 Izveidot klases kvadrātam, taisnstūrim, taisnleņķa trijstūrim.
-Izveidot risinājumu tā, ka kvadrāta un taisnstūra klases ir savā starpā saistītas ar mantošanu. 
 Katrai klasei saglabāt atribūtus par malu garumiem un izveidot metodes laukuma un perimetra aprēķināšanai.

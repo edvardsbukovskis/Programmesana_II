@@ -1,1 +1,1 @@
-Šis ir mans repozitorijs priekš programmēšanas II darbiem 12.DIT klasei.
+Šis ir mans repozitorijs priekš programmēšanas II darbiem un materiāla 12. klasei.

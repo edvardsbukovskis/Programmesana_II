@@ -1,0 +1,3 @@
+Izveidot klasi "Biļetes", kurā ir atribūti cena un daudzums, metode "kopeja_cena", kas aprēķina kopējo biļešu cenu (biļešu skaits * cena).
+Izveidot apakšklasi "Skolenu_biletes", kura manto visus atribūtus un metodes no "Biļetes". Skolēnu biļešu kopējai cenai ir jābūt ar 15% atlaidi no kopējās summas.
+Izveidot klasi "Pensionaru_biletes", kura arī manto visus atribūtus un parametrus no "Biļetes klases". Pensionāru biļetēm ir tāda pati atlaide kā skolēnu

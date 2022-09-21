@@ -1,6 +1,6 @@
-Izveidot klasi BankasKonts, kurai ir atribûti KontaNr, IpasniekaVards, bilance.
-Izveidot konstruktoru, kurğ inicializç BankasKonts atribûtus.
-Izveidot metodi Deposit(), kura ïauj veikt bankas kontâ depozîtu.
-Izveidot metodi Withdrawal(), kura ïauj veikt izmaksas.
-Izveidot metodi BankFee(), kas pieğíir katrai transkacijai 5% nodevu.
-Izveidot metodi Display(), kas parâda konta informâciju.
+Izveidot klasi BankasKonts, kurai ir atribÃ»ti KontaNr, IpasniekaVards, bilance.
+Izveidot konstruktoru, kurÄŸ inicializÃ§ BankasKonts atribÃ»tus.
+Izveidot metodi Deposit(), kura Ã¯auj veikt bankas kontÃ¢ depozÃ®tu.
+Izveidot metodi Withdrawal(), kura Ã¯auj veikt izmaksas.
+Izveidot metodi BankFee(), kas pieÄŸÃ­ir katrai withdrawal tranzakcijai 5% nodevu.
+Izveidot metodi Display(), kas parÃ¢da konta informÃ¢ciju.

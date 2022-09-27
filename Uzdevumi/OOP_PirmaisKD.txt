@@ -1,9 +1,9 @@
-Izveidot klasi Rekinatajs ar noklusçtu konstruktoru, kuram netiek padotas vçrtîbas.
-Izveidot metodi Factorial(), kas ïauj aprçíinât viena skaitïa faktoriâlu.
-Izveidot metodi Sum(), kas sasummç visus skaitïus lîdz dotajam skaitlim n (Piem. padod 3, tad vajag aprçíinât 1+2+3)
-Izveidot metodi testPrime(), kas pârbauda vai dotais skaitlis ir pirmskaitlis.
-Izveidot metodi TableMult(), kas izveido reizrçíina tabulu lîdz padotajam skaitlim n.
-Izveidot metodi listDiv(), kas atrod visus dalîtâjus dotajam skaitlim n.
-Izveidot metodi listDivPrime, aks atrod visus dalîtâjus skaitlim n, kuri ir pirmskaitïi.
+Izveidot klasi Rekinatajs ar noklusÄ“tu konstruktoru, kuram netiek padotas vÄ“rtÄ«bas.
+Izveidot metodi Factorial(), kas Ä¼auj aprÄ“Ä·inat viena skaitÄ¼a faktoriÄlu.
+Izveidot metodi Sum(), kas sasummÄ“ visus skaitÄ¼us lÃ®dz dotajam skaitlim n (Piem. padod 3, tad vajag aprÄ“Ä·inÄt 1+2+3)
+Izveidot metodi testPrime(), kas pÃ¢rbauda vai dotais skaitlis ir pirmskaitlis.
+Izveidot metodi TableMult(), kas izveido reizrÄ“Ä·ina tabulu lÄ«dz padotajam skaitlim n.
+Izveidot metodi listDiv(), kas atrod visus dalÃ®tÃ¢jus dotajam skaitlim n.
+Izveidot metodi listDivPrime, aks atrod visus dalÃ®tÃ¢jus skaitlim n, kuri ir pirmskaitÄ¼i.
 
-Koda sâkumâ izveidot komentâru, kur norâdîts jûsu vârds, uzvârds. Kodu iesûtît skolotâja gitHub mapç "Iesutne".
+Koda sÃ¢kumÃ¢ izveidot komentÃ¢ru, kur norÃ¢dÃ®ts jÃ»su vÃ¢rds, uzvÃ¢rds. Kodu iesÃ»tÃ®t skolotÃ¢ja gitHub mapÄ“ "Iesutne".

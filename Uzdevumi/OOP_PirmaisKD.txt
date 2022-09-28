@@ -6,4 +6,4 @@ Izveidot metodi TableMult(), kas izveido reizrēķina tabulu līdz padotajam ska
 Izveidot metodi listDiv(), kas atrod visus dalîtâjus dotajam skaitlim n.
 Izveidot metodi listDivPrime, aks atrod visus dalîtâjus skaitlim n, kuri ir pirmskaitļi.
 
-Koda sâkumâ izveidot komentâru, kur norâdîts jûsu vârds, uzvârds. Kodu iesûtît google drive mapē: https://drive.google.com/drive/folders/1s-yCZFGTTuDxvMSMbWJhOmml9NdbRCYj?usp=sharing
+Koda sâkumâ izveidot komentâru, kur norâdîts jûsu vârds, uzvârds. Faila nosaukumā arī jābūt vārdam un uzvārdam Kodu iesûtît google drive mapē: https://drive.google.com/drive/folders/1s-yCZFGTTuDxvMSMbWJhOmml9NdbRCYj?usp=sharing

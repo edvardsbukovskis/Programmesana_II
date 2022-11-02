@@ -1,17 +1,18 @@
-Pârbaudes darbs 12.klase par DB projektçğanu.
+PÄrbaudes darbs 12.klase par DB projektÄ“Å¡anu.
 
 Uzdevumi: 
-Izveidot konceptuâlo(loìisko) DB modeli.
-Izveidot relâciju(fizisko) DB modeli.
-Uzraksît SQL kodu, kas realizç Jûsu datu bâzi.
+Izveidot konceptuÄlo(loÄ£isko) DB modeli.
+Izveidot relÄciju(fizisko) DB modeli.
+UzraksÄ«t SQL kodu, kas realizÄ“ JÅ«su datu bÄzi.
+Datu bÄzes modeÄ¼us var veidot vietnÄ“ smartdraw.com
 ---------------------------------------------------------
-Situâcijas apraksts:
-Tiem, kuriem şurnâlâ nepâra skaitlis:
+SituÄcijas apraksts:
+Tiem, kuriem Å¾urnÄlÄ nepÄra skaitlis:
 
-Izveidot datu bâzi skaistumkopğanas salonam. Salonam ir vairâku veidu produkcija, kuru pçrk klienti. Salons nodroğina produkta piegadi klientam caur kurjeru (kurjeri ir tâ pağa salona darbinieki), vai arî klients pçrk un saòem preci uz vietas. Salonam ir vairâki darbinieki, ir arî salona îpağnieks. Katram darbiniekam ir savs darba grafiks - piemçram daşi darbinieki strâdâ katru dienu, bet daşi tikai pâris dienas nedçïâ.
-Ğîs DB realizâcijâ ir jâbût vismaz 4 tabulâm un jâbût realizçtam vismaz vienam relâciju veidam (one-to-one, one-to-many vai many-to-many).
+Izveidot datu bÄzi skaistumkopÅ¡anas salonam. Salonam ir vairÄku veidu produkcija, kuru pÄ“rk klienti. Salons nodroÅ¡ina produkta piegadi klientam caur kurjeru (kurjeri ir tÄ paÅ¡a salona darbinieki), vai arÄ« klients pÄ“rk un saÅ†em preci uz vietas. Salonam ir vairÄki darbinieki, ir arÄ« salona Ä«paÅ¡nieks. Katram darbiniekam ir savs darba grafiks - piemÄ“ram daÅ¾i darbinieki strÄdÄ katru dienu, bet daÅ¾i tikai pÄris dienas nedÄ“Ä¼Ä.
+Å Ä«s DB realizÄcijÄ ir jÄbÅ«t vismaz 4 tabulÄm un jÄbÅ«t realizÄ“tam vismaz vienam relÄciju veidam (one-to-one, one-to-many vai many-to-many).
 ---------------------------------------------------------
-Tiem, kuriem şurnâlâ pâra skaitlis:
+Tiem, kuriem Å¾urnÄlÄ pÄra skaitlis:
 
-Izveidot datu bâzi ceïu satiksmes negadîjumu(CSN) reìistrçğanas sistçmai, kur tiek glabâti dati par CSN - negadîjuma laiks, notikuma vieta, iesaistîtie auto, utt. Datu bâzç tiek glabâta arî informâcija par âtruma radariem un fiksçtajiem âtruma pârkâpumiem.
-Ğîs DB realizâcijâ ir jâbût vismaz 4 tabulâm un jâbût realizçtam vismaz vienam relâciju veidam (one-to-one, one-to-many vai many-to-many).
+Izveidot datu bÄzi ceÄ¼u satiksmes negadÄ«jumu(CSN) reÄ£istrÄ“Å¡anas sistÄ“mai, kur tiek glabÄti dati par CSN - negadÄ«juma laiks, notikuma vieta, iesaistÄ«tie auto, utt. Datu bÄzÄ“ tiek glabÄta arÄ« informÄcija par Ätruma radariem un fiksÄ“tajiem Ätruma pÄrkÄpumiem.
+Å Ä«s DB realizÄcijÄ ir jÄbÅ«t vismaz 4 tabulÄm un jÄbÅ«t realizÄ“tam vismaz vienam relÄciju veidam (one-to-one, one-to-many vai many-to-many).

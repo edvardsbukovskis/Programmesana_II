@@ -1,0 +1,17 @@
+Pârbaudes darbs 12.klase par DB projektçðanu.
+
+Uzdevumi: 
+Izveidot konceptuâlo(loìisko) DB modeli.
+Izveidot relâciju(fizisko) DB modeli.
+Uzraksît SQL kodu, kas realizç Jûsu datu bâzi.
+---------------------------------------------------------
+Situâcijas apraksts:
+Tiem, kuriem þurnâlâ nepâra skaitlis:
+
+Izveidot datu bâzi skaistumkopðanas salonam. Salonam ir vairâku veidu produkcija, kuru pçrk klienti. Salons nodroðina produkta piegadi klientam caur kurjeru (kurjeri ir tâ paða salona darbinieki), vai arî klients pçrk un saòem preci uz vietas. Salonam ir vairâki darbinieki, ir arî salona îpaðnieks. Katram darbiniekam ir savs darba grafiks - piemçram daþi darbinieki strâdâ katru dienu, bet daþi tikai pâris dienas nedçïâ.
+Ðîs DB realizâcijâ ir jâbût vismaz 4 tabulâm un jâbût realizçtam vismaz vienam relâciju veidam (one-to-one, one-to-many vai many-to-many).
+---------------------------------------------------------
+Tiem, kuriem þurnâlâ pâra skaitlis:
+
+Izveidot datu bâzi ceïu satiksmes negadîjumu(CSN) reìistrçðanas sistçmai, kur tiek glabâti dati par CSN - negadîjuma laiks, notikuma vieta, iesaistîtie auto, utt. Datu bâzç tiek glabâta arî informâcija par âtruma radariem un fiksçtajiem âtruma pârkâpumiem.
+Ðîs DB realizâcijâ ir jâbût vismaz 4 tabulâm un jâbût realizçtam vismaz vienam relâciju veidam (one-to-one, one-to-many vai many-to-many).

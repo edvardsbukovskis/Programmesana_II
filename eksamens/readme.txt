@@ -1,0 +1,1 @@
+Mape gatavošanās eksāmenam

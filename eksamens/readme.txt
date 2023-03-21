@@ -1,1 +1,1 @@
-Mape gatavošanās eksāmenam
+Mape ar infromāciju par Programmēšanas kursa eksāmenu.

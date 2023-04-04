@@ -1,1 +1,1 @@
-PS darbu kolekcija piemēriem
+PPS darbu kolekcija piemēriem

@@ -1,0 +1,36 @@
+INTRODUCTION TO CLASSES
+Types
+Python equips us with many different ways to store data. A float is a different kind of number from an int, and we store different data in a list than we do in a dict. These are known as different types. We can check the type of a Python variable using the type() function.
+
+a_string = "Cool String"
+an_int = 12
+
+print(type(a_string))
+# prints "<class 'str'>"
+
+print(type(an_int))
+# prints "<class 'int'>"
+
+Above, we defined two variables, and checked the type of these two variables. A variable’s type determines what you can do with it and how you can use it. You can’t .get() something from an integer, just as you can’t add two dictionaries together using +. This is because those operations are defined at the type level.
+
+Instructions
+1.
+Call type() on the integer 5 and print the results.
+
+Checkpoint 2 Passed
+
+Stuck? Get a hint
+2.
+Define a dictionary my_dict.
+
+Checkpoint 3 Passed
+3.
+Print out the type() of my_dict.
+
+Checkpoint 4 Passed
+4.
+Define a list called my_list.
+
+Checkpoint 5 Passed
+5.
+Print out the type() of my_list.

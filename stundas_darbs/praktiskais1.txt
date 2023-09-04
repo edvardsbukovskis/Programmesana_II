@@ -1,0 +1,17 @@
+Skolu Katalogs
+Izvērtēsim jūsu zināšanas par klasēm, izveidojot digitālu skolu katalogu Ņujorkas pilsētas Izglītības departamentam. Izglītības departaments vēlas, lai katalogā būtu ātri apskatāms materiāls par katras pilsētas skolu.
+
+Mums ir nepieciešams izveidot klases pamatskolām un vidusskolām. Tā kā šīm klasēm ir kopīgas īpašības un metodes, katra no tām mantos no vecākās Skola klases. Mūsu vecākajai un trīs bērnu klasēm ir šādas īpašības, īpašību iegūšanas metodes (getter), īpašību iestatīšanas metodes (setter) un metodes:
+
+Skola
+Īpašības: name (string), level (one of three strings: 'primary', 'middle', or 'high'), and numberOfStudents (integer)
+Setter: īpašībai numberOfStudents ir setteris
+Metodes: repr metode, kas attēlo informāciju par skolu.
+Pamatskola
+Ietver visu, kas ir Skola klasē, plus viena papildus īpašība
+Īpašības: pickupPolicy (string, like "Pickup after 3pm")
+Vidusskola
+Neietver nekādas papildus īpašības vai metodes
+Augstākā
+Ietver visu, kas ir Skola klasē, plus viena papildus īpašība
+Īpašības: sportsTeams (list of strings, like ['basketball', 'tennis'])

@@ -10,9 +10,6 @@ class Employee():
 
 e1 = Employee("Maisy")
 e2 = Employee()
-
-e1 = Employee("Maisy")
-e2 = Employee()
 print(e1.get_name())
 
 e2.set_name("Fluffy")

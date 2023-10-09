@@ -1,0 +1,20 @@
+CREATE TABLE Exercise (
+    ExerciseID INT PRIMARY KEY,
+    ExerciseName VARCHAR(255),
+    MuscleGroup VARCHAR(50),
+    DifficultyLevel VARCHAR(20)
+);
+
+-- Inserting sample data
+INSERT INTO Exercise (ExerciseID, ExerciseName, MuscleGroup, DifficultyLevel)
+VALUES
+    (1, 'Push-up', 'Upper Body', 'Beginner'),
+    (2, 'Squats', 'Lower Body', 'Intermediate'),
+    (3, 'Plank', 'Core', 'Beginner'),
+    (4, 'Deadlift', 'Lower Body', 'Advanced'),
+    (5, 'Pull-up', 'Upper Body', 'Advanced'),
+    (6, 'Crunches', 'Core', 'Intermediate'),
+    (7, 'Lunges', 'Lower Body', 'Intermediate'),
+    (8, 'Bench Press', 'Upper Body', 'Advanced'),
+    (9, 'Russian Twists', 'Core', 'Intermediate'),
+    (10, 'Leg Press', 'Lower Body', 'Intermediate');

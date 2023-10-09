@@ -1,0 +1,19 @@
+CREATE TABLE EquipmentUsage (
+    UsageID INT PRIMARY KEY,
+    EquipmentID INT,
+    MemberID INT,
+    UsageDate DATE,
+    DurationMinutes INT
+);
+
+-- Inserting sample equipment usage data (more than 100 rows)
+WITH RECURSIVE EquipmentUsageCTE AS (
+  SELECT 1 AS UsageID, 1 AS EquipmentID, 1 AS MemberID, '2023-01-01' AS UsageDate, 30 AS DurationMinutes
+  UNION ALL
+  SELECT UsageID + 1, EquipmentID + 1, MemberID + 1, DATE(UsageDate, '+' || (UsageID % 30) || ' days'), (DurationMinutes % 60) + 15
+  FROM EquipmentUsageCTE
+  WHERE UsageID < 150
+)
+
+INSERT INTO EquipmentUsage (UsageID, EquipmentID, MemberID, UsageDate, DurationMinutes)
+SELECT * FROM EquipmentUsageCTE;

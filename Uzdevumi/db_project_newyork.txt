@@ -99,7 +99,7 @@ Suppose Abbi and Ilana want to have a fancy dinner date.
 Return all the restaurants that are Italian and $$$.
 
 7.
-Your coworker Trey can’t remember the exact name of a restaurant he went to but he knows it contains the word ‘meatball’ in it.
+Your coworker Trey can’t remember the exact name of a restaurant he went to but he knows it contains the number ‘857’ in it.
 
 Can you find it for him using a query?
 

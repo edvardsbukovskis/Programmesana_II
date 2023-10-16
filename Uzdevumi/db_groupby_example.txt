@@ -1,0 +1,33 @@
+-- Creating the 'artists' table
+CREATE TABLE artists (
+    album_id INTEGER PRIMARY KEY,
+    artist_name TEXT NOT NULL,
+    album_name TEXT NOT NULL,
+    release_year INTEGER NOT NULL,
+    avg_track_rating DECIMAL(3,1) NOT NULL -- Average rating of tracks in the album, e.g., 4.5 out of 5
+);
+
+-- Inserting some sample data into the 'artists' table
+WITH RECURSIVE artist_gen AS (
+    SELECT 1 AS id
+    UNION ALL
+    SELECT id + 1 FROM artist_gen WHERE id < 38
+)
+INSERT INTO artists (artist_name, album_name, release_year, avg_track_rating)
+SELECT 
+    'Artist ' || ((id - 1) % 7 + 1), 
+    'Album ' || id,
+    1985 + (id % 35), 
+    (RANDOM() % 4 + 1) * 0.1 + 1.0 -- Random rating between 1.1 to 5.0
+FROM artist_gen;
+
+
+Exercise 1:
+Find the average track rating of albums for each artist.
+
+Exercise 2:
+Determine the number of albums released by each artist.
+
+Exercise 3:
+Calculate the highest average track rating for albums released each year.
+

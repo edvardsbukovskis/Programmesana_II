@@ -1,0 +1,30 @@
+-- Creating the 'books' table
+CREATE TABLE books (
+    book_id INTEGER PRIMARY KEY,
+    title TEXT NOT NULL,
+    author TEXT NOT NULL,
+    publication_year INTEGER NOT NULL,
+    sales INTEGER NOT NULL
+);
+
+-- Inserting some sample data into the 'books' table
+WITH RECURSIVE counter AS (
+    SELECT 1 AS id
+    UNION ALL
+    SELECT id + 1 FROM counter WHERE id < 32
+)
+INSERT INTO books (title, author, publication_year, sales)
+SELECT 
+    'Title ' || id, 
+    'Author ' || ((id - 1) % 5 + 1), 
+    1980 + (id % 40), 
+    1000 * id 
+FROM counter;
+
+
+
+Exercise 1:
+Find the publication year of the newest book in the database.
+
+Exercise 2:
+Find the title and sales of the book that has sold the most copies.

@@ -1,0 +1,29 @@
+-- Creating the 'products' table
+CREATE TABLE products (
+    product_id INTEGER PRIMARY KEY,
+    product_name TEXT NOT NULL,
+    review DECIMAL(2,1) NOT NULL, -- Review out of 5, e.g., 4.3
+    price DECIMAL(5,2) NOT NULL  -- e.g., 99.99
+);
+
+-- Inserting some sample data into the 'products' table
+WITH RECURSIVE product_gen AS (
+    SELECT 1 AS id
+    UNION ALL
+    SELECT id + 1 FROM product_gen WHERE id < 35
+)
+INSERT INTO products (product_name, review, price)
+SELECT 
+    'Product ' || id, 
+    (RANDOM() % 4 + 2) * 0.1,  -- Random review between 2.0 to 5.0
+    (RANDOM() % 9900 + 100) * 0.01  -- Random price between 1.00 to 100.00
+FROM product_gen;
+
+Exercise 1:
+Round the reviews of all products to 0 decimal places.
+
+Exercise 2:
+Find the product names and their prices, rounded to the nearest whole number.
+
+Exercise 3:
+Calculate the average price of all products and round it to 2 decimal places.

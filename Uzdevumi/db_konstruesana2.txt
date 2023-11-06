@@ -1,0 +1,25 @@
+Scenario 2: Online E-commerce Store
+Specific Task Description:
+
+Tables and Attributes:
+
+Customers: Attributes include CustomerID, Name, Email, Password, ShippingAddress, BillingAddress.
+Products: Attributes include ProductID, Name, Description, Price, StockQuantity.
+Categories: Attributes include CategoryID, Name, Description.
+ProductCategories: This is a junction table to handle the many-to-many relationship between Products and Categories.
+Orders: Attributes include OrderID, CustomerID, OrderDate, Status.
+OrderDetails: Attributes include OrderDetailID, OrderID, ProductID, Quantity, UnitPrice.
+Reviews: Attributes include ReviewID, ProductID, CustomerID, Rating, Comment, ReviewDate.
+Relationships:
+
+Customers to Orders: One-to-many (A customer can place many orders, but an order is placed by one customer).
+Products to OrderDetails: One-to-many (A product can be part of many order details, but an order detail refers to one product).
+Orders to OrderDetails: One-to-many (An order can contain many order details, but an order detail is part of one order).
+Products to Categories through ProductCategories: Many-to-many (A product can belong to many categories, and a category can contain many products).
+Products to Reviews: One-to-many (A product can have many reviews, but a review is associated with one product).
+Customers to Reviews: One-to-many (A customer can write many reviews, but a review is written by one customer).
+Implementation Hints:
+
+Primary keys need to be identified for each table.
+Students must determine the appropriate foreign keys (e.g., CustomerID in Orders references CustomerID in Customers).
+The ProductCategories junction table should contain ProductID and CategoryID as foreign keys, ensuring that each product-category pairing is unique.

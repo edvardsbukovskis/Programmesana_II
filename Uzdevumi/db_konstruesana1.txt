@@ -1,0 +1,22 @@
+Scenario 1: Library Management System
+Specific Task Description:
+
+Tables and Attributes:
+
+Books: Attributes include BookID, ISBN, Title, PublicationYear, Genre.
+Copies: Attributes include CopyID, BookID, ConditionStatus.
+Authors: Attributes include AuthorID, Name, Biography.
+BookAuthors: This is a junction table to handle the many-to-many relationship between Books and Authors.
+Patrons: Attributes include PatronID, Name, MembershipDate.
+Loans: Attributes include LoanID, CopyID, PatronID, LoanDate, DueDate, ReturnDate.
+Relationships:
+
+Books to Copies: One-to-many (Each book can have multiple copies).
+Books to Authors through BookAuthors: Many-to-many (A book can have multiple authors and an author can write multiple books).
+Patrons to Loans: One-to-many (A patron can have multiple loans, but each loan is associated with only one patron).
+Copies to Loans: One-to-one (Each copy can be on one loan at a time).
+Implementation Hints:
+
+Students should determine the primary keys for each table (like BookID, AuthorID, etc.).
+Students should figure out which attributes should be foreign keys to link tables together (for example, CopyID in Loans references CopyID in Copies).
+The junction table BookAuthors should include BookID and AuthorID as foreign keys, and the combination should be unique to prevent duplicate pairings.

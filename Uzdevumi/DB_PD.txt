@@ -1,0 +1,13 @@
+Exam Task: Veterinary Clinic System
+Scenario Description:
+
+You are tasked with designing a database for a busy veterinary clinic that provides services for various types of animals. The clinic wants to keep track of their patients, the services they provide, the staff, and the appointments. The following details are provided:
+
+Each pet is brought in by an owner, and while owners can have multiple pets, each pet is registered with one primary owner.
+Pets can be of different species and have a variety of treatments.
+The clinic offers various services, including vaccinations, check-ups, and surgeries. Each service has a price that can change over time.
+Staff members include veterinarians and administrative personnel. Each staff member has a unique role, but veterinarians can specialize in multiple areas (e.g., dentistry, surgery).
+Appointments are made for pets to receive specific services, and it’s important to track the staff member who provided the service, the pet that received it, and the date and time of the appointment.
+From this description, identify the entities, relationships, and attributes necessary to design a relational database that captures all the required information. Ensure that your design incorporates at least one one-to-one, one-to-many, and many-to-many relationship, and includes at least five tables.
+
+You need to create conceptual DB model, Relation DB model, and create the database creation code in SQL.

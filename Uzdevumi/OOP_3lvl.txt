@@ -1,0 +1,97 @@
+Beginner Level Exercise: Modeling a Simple Library Book
+
+Problem:
+Create a class Book that represents a book in a library system. The class should have the following attributes:
+title: The title of the book.
+author: The author of the book.
+isbn: The ISBN number of the book.
+
+Implement the following methods:
+
+__init__: Initializes the title, author, and isbn attributes.
+__repr__: Returns a string representation of the book in the format:
+"Book-The Great Gatsby, author-F. Scott Fitzgerald, isbn-1234567890"
+
+Tasks:
+Define the Book class with the specified attributes and methods.
+Create an instance of Book with the title "To Kill a Mockingbird", author "Harper Lee", and ISBN "9780060935467".
+Print the instance to see its string representation.
+
+
+
+Medium Level Exercise: Designing a Vehicle Hierarchy
+
+Problem:
+You are designing a system to manage different types of vehicles for a transportation company.
+Create a base class Vehicle with the following:
+
+Attributes:
+make: The manufacturer of the vehicle.
+model: The model of the vehicle.
+year: The production year of the vehicle.
+Methods:
+__init__: Initializes the make, model, and year.
+__repr__: Returns a string representation of the vehicle.
+
+Then, create two subclasses Car and Truck that inherit from Vehicle.
+
+For Car:
+Additional Attribute:
+number_of_doors: Number of doors in the car.
+Methods:
+Override __repr__ to include number_of_doors.
+
+For Truck:
+Additional Attribute:
+payload_capacity: Maximum payload capacity in tons.
+Methods:
+Override __repr__ to include payload_capacity.
+
+Tasks:
+Define the Vehicle base class.
+Define the Car and Truck subclasses with their additional attributes and overridden methods.
+Create an instance of Car and Truck, and print them to see their representations.
+
+
+
+Advanced Level Exercise: Building an Employee Management System
+
+Problem:
+Develop an employee management system for a company that includes different types of employees.
+
+Create a base class Employee with:
+Attributes:
+name: The employee's name.
+employee_id: Unique identifier for the employee.
+salary: The base salary of the employee.
+Methods:
+__init__: Initializes the name, employee_id, and salary.
+__repr__: Returns a string representation of the employee.
+calculate_pay(): Returns the salary (to be overridden in subclasses if needed).
+Then, create subclasses Manager, Engineer, and Intern that inherit from Employee.
+
+For Manager:
+Additional Attribute:
+bonus: Annual bonus amount.
+Methods:
+Override calculate_pay() to include the bonus.
+For Engineer:
+
+Additional Attribute:
+specialty: The engineering specialty (e.g., 'Software', 'Mechanical').
+Methods:
+Use the base calculate_pay() method.
+For Intern:
+
+Additional Attribute:
+school: The school the intern is attending.
+Methods:
+Override calculate_pay() to return half the salary.
+
+Tasks:
+Define the Employee base class.
+Define the Manager, Engineer, and Intern subclasses with their specific attributes and methods.
+Override the calculate_pay() method in subclasses where necessary.
+Create instances of each subclass and demonstrate the calculate_pay() method.
+Print the employee details using __repr__.
+

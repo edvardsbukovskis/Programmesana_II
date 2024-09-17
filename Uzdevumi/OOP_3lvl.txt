@@ -95,3 +95,77 @@ Override the calculate_pay() method in subclasses where necessary.
 Create instances of each subclass and demonstrate the calculate_pay() method.
 Print the employee details using __repr__.
 
+
+
+
+Extra - Advanced Level Exercise: Creating a Hospital Management System
+Problem:
+
+Develop a hospital management system that models patients, medical staff, and appointments.
+
+Classes to Create:
+
+Person (Base Class)
+
+Attributes:
+name: The person's full name.
+age: The person's age.
+gender: The person's gender.
+Methods:
+__init__: Initializes the name, age, and gender.
+__repr__: Returns a string representation of the person.
+
+Patient (Subclass of Person)
+Additional Attributes:
+patient_id: Unique identifier for the patient.
+ailments: List of ailments the patient has.
+appointments: List of Appointment objects.
+Methods:
+add_ailment(ailment): Adds an ailment to the patient's list.
+schedule_appointment(appointment): Adds an appointment to the patient's schedule.
+Override __repr__ to include patient_id and ailments.
+
+Staff (Subclass of Person)
+Attributes:
+staff_id: Unique identifier for the staff member.
+department: Department where the staff member works.
+Methods:
+__init__: Initializes all attributes, including those from Person.
+Override __repr__ to include staff_id and department.
+
+Doctor (Subclass of Staff)
+Additional Attributes:
+specialization: Medical specialization (e.g., 'Cardiology', 'Neurology').
+patients: List of Patient objects assigned to the doctor.
+Methods:
+add_patient(patient): Adds a patient to the doctor's list.
+Override __repr__ to include specialization.
+
+Nurse (Subclass of Staff)
+Additional Attributes:
+shift: The nurse's working shift (e.g., 'Day', 'Night').
+Methods:
+Override __repr__ to include shift.
+
+Appointment
+Attributes:
+appointment_id: Unique identifier for the appointment.
+patient: The Patient object.
+doctor: The Doctor object.
+date: The date of the appointment.
+time: The time of the appointment.
+Methods:
+__init__: Initializes all attributes.
+__repr__: Returns a string representation of the appointment.
+
+Tasks:
+Define all classes with their respective attributes and methods.
+Implement inheritance where appropriate, ensuring proper initialization using super().
+Override methods (__repr__) to provide meaningful string representations.
+Create instances of Patient, Doctor, Nurse, and Appointment.
+Simulate interactions:
+Add ailments to patients.
+Schedule appointments between patients and doctors.
+Assign patients to doctors.
+Print out details of patients, staff, and appointments to demonstrate the functioning of the system.
+

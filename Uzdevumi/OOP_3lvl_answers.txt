@@ -1,0 +1,138 @@
+Beginner: 
+
+class Book:
+    def __init__(self, title, author, isbn):
+        """Initialize the book with title, author, and ISBN."""
+        self.title = title
+        self.author = author
+        self.isbn = isbn
+
+    def __repr__(self):
+        """Return a string representation of the book."""
+        return (f"Book(title='{self.title}', "
+                f"author='{self.author}', isbn='{self.isbn}')")
+
+# Creating an instance of Book
+book = Book("To Kill a Mockingbird", "Harper Lee", "9780060935467")
+print(book)
+
+
+Medium:
+
+class Vehicle:
+    def __init__(self, make, model, year):
+        """Initialize the vehicle with make, model, and year."""
+        self.make = make
+        self.model = model
+        self.year = year
+
+    def __repr__(self):
+        """Return a string representation of the vehicle."""
+        return (f"Vehicle(make='{self.make}', model='{self.model}', "
+                f"year={self.year})")
+
+class Car(Vehicle):
+    def __init__(self, make, model, year, number_of_doors):
+        """Initialize the car with make, model, year, and number of doors."""
+        super().__init__(make, model, year)
+        self.number_of_doors = number_of_doors
+
+    def __repr__(self):
+        """Return a string representation of the car."""
+        return (f"Car(make='{self.make}', model='{self.model}', "
+                f"year={self.year}, number_of_doors={self.number_of_doors})")
+
+class Truck(Vehicle):
+    def __init__(self, make, model, year, payload_capacity):
+        """Initialize the truck with make, model, year, and payload capacity."""
+        super().__init__(make, model, year)
+        self.payload_capacity = payload_capacity
+
+    def __repr__(self):
+        """Return a string representation of the truck."""
+        return (f"Truck(make='{self.make}', model='{self.model}', "
+                f"year={self.year}, payload_capacity={self.payload_capacity} tons)")
+
+# Creating instances
+car = Car("Toyota", "Camry", 2020, number_of_doors=4)
+truck = Truck("Ford", "F-150", 2019, payload_capacity=1.5)
+
+# Printing instances
+print(car)
+print(truck)
+
+
+
+Advanced:
+
+class Employee:
+    def __init__(self, name, employee_id, salary):
+        """Initialize the employee with name, ID, and salary."""
+        self.name = name
+        self.employee_id = employee_id
+        self.salary = salary
+
+    def calculate_pay(self):
+        """Calculate the employee's pay."""
+        return self.salary
+
+    def __repr__(self):
+        """Return a string representation of the employee."""
+        return (f"Employee(name='{self.name}', employee_id={self.employee_id}, "
+                f"salary={self.salary})")
+
+class Manager(Employee):
+    def __init__(self, name, employee_id, salary, bonus):
+        """Initialize the manager with name, ID, salary, and bonus."""
+        super().__init__(name, employee_id, salary)
+        self.bonus = bonus
+
+    def calculate_pay(self):
+        """Calculate the manager's pay including bonus."""
+        return self.salary + self.bonus
+
+    def __repr__(self):
+        """Return a string representation of the manager."""
+        return (f"Manager(name='{self.name}', employee_id={self.employee_id}, "
+                f"salary={self.salary}, bonus={self.bonus})")
+
+class Engineer(Employee):
+    def __init__(self, name, employee_id, salary, specialty):
+        """Initialize the engineer with name, ID, salary, and specialty."""
+        super().__init__(name, employee_id, salary)
+        self.specialty = specialty
+
+    def __repr__(self):
+        """Return a string representation of the engineer."""
+        return (f"Engineer(name='{self.name}', employee_id={self.employee_id}, "
+                f"salary={self.salary}, specialty='{self.specialty}')")
+
+class Intern(Employee):
+    def __init__(self, name, employee_id, salary, school):
+        """Initialize the intern with name, ID, salary, and school."""
+        super().__init__(name, employee_id, salary)
+        self.school = school
+
+    def calculate_pay(self):
+        """Calculate the intern's pay (half salary)."""
+        return self.salary / 2
+
+    def __repr__(self):
+        """Return a string representation of the intern."""
+        return (f"Intern(name='{self.name}', employee_id={self.employee_id}, "
+                f"salary={self.salary}, school='{self.school}')")
+
+# Creating instances
+manager = Manager("Alice Johnson", 1001, salary=80000, bonus=10000)
+engineer = Engineer("Bob Smith", 1002, salary=70000, specialty='Software')
+intern = Intern("Charlie Brown", 1003, salary=30000, school='State University')
+
+# Demonstrating calculate_pay()
+print(manager)
+print(f"Manager Pay: {manager.calculate_pay()}")
+
+print(engineer)
+print(f"Engineer Pay: {engineer.calculate_pay()}")
+
+print(intern)
+print(f"Intern Pay: {intern.calculate_pay()}")

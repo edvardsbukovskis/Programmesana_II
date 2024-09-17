@@ -136,3 +136,169 @@ print(f"Engineer Pay: {engineer.calculate_pay()}")
 
 print(intern)
 print(f"Intern Pay: {intern.calculate_pay()}")
+
+
+Extra - Advanced
+
+# Base Class
+class Person:
+    def __init__(self, name, age, gender):
+        """Initialize the person with name, age, and gender."""
+        self.name = name
+        self.age = age
+        self.gender = gender
+
+    def __repr__(self):
+        """Return a string representation of the person."""
+        return (f"Person(name='{self.name}', age={self.age}, "
+                f"gender='{self.gender}')")
+
+# Subclass of Person
+class Patient(Person):
+    def __init__(self, name, age, gender, patient_id):
+        """Initialize the patient with name, age, gender, and patient ID."""
+        super().__init__(name, age, gender)
+        self.patient_id = patient_id
+        self.ailments = []
+        self.appointments = []
+
+    def add_ailment(self, ailment):
+        """Add an ailment to the patient's list."""
+        self.ailments.append(ailment)
+
+    def schedule_appointment(self, appointment):
+        """Add an appointment to the patient's schedule."""
+        self.appointments.append(appointment)
+
+    def __repr__(self):
+        """Return a string representation of the patient."""
+        return (f"Patient(name='{self.name}', age={self.age}, "
+                f"gender='{self.gender}', patient_id={self.patient_id}, "
+                f"ailments={self.ailments})")
+
+# Subclass of Person
+class Staff(Person):
+    def __init__(self, name, age, gender, staff_id, department):
+        """Initialize the staff member with name, age, gender, staff ID, and department."""
+        super().__init__(name, age, gender)
+        self.staff_id = staff_id
+        self.department = department
+
+    def __repr__(self):
+        """Return a string representation of the staff member."""
+        return (f"Staff(name='{self.name}', age={self.age}, "
+                f"gender='{self.gender}', staff_id={self.staff_id}, "
+                f"department='{self.department}')")
+
+# Subclass of Staff
+class Doctor(Staff):
+    def __init__(self, name, age, gender, staff_id, department, specialization):
+        """Initialize the doctor with additional specialization."""
+        super().__init__(name, age, gender, staff_id, department)
+        self.specialization = specialization
+        self.patients = []
+
+    def add_patient(self, patient):
+        """Add a patient to the doctor's list."""
+        self.patients.append(patient)
+
+    def __repr__(self):
+        """Return a string representation of the doctor."""
+        return (f"Doctor(name='{self.name}', age={self.age}, "
+                f"gender='{self.gender}', staff_id={self.staff_id}, "
+                f"department='{self.department}', "
+                f"specialization='{self.specialization}')")
+
+# Subclass of Staff
+class Nurse(Staff):
+    def __init__(self, name, age, gender, staff_id, department, shift):
+        """Initialize the nurse with additional shift information."""
+        super().__init__(name, age, gender, staff_id, department)
+        self.shift = shift
+
+    def __repr__(self):
+        """Return a string representation of the nurse."""
+        return (f"Nurse(name='{self.name}', age={self.age}, "
+                f"gender='{self.gender}', staff_id={self.staff_id}, "
+                f"department='{self.department}', shift='{self.shift}')")
+
+# Appointment Class
+class Appointment:
+    def __init__(self, appointment_id, patient, doctor, date, time):
+        """Initialize the appointment with all required details."""
+        self.appointment_id = appointment_id
+        self.patient = patient
+        self.doctor = doctor
+        self.date = date
+        self.time = time
+
+    def __repr__(self):
+        """Return a string representation of the appointment."""
+        return (f"Appointment(appointment_id={self.appointment_id}, "
+                f"patient='{self.patient.name}', doctor='{self.doctor.name}', "
+                f"date='{self.date}', time='{self.time}')")
+
+# --- Simulation ---
+
+# Create Patients
+patient1 = Patient("John Doe", 30, "Male", patient_id=2001)
+patient2 = Patient("Jane Smith", 25, "Female", patient_id=2002)
+
+# Add ailments to patients
+patient1.add_ailment("Flu")
+patient1.add_ailment("High Fever")
+patient2.add_ailment("Migraine")
+
+# Create Doctors
+doctor1 = Doctor("Dr. Emily White", 45, "Female", staff_id=1001,
+                 department="General Medicine", specialization="Internal Medicine")
+doctor2 = Doctor("Dr. Michael Brown", 50, "Male", staff_id=1002,
+                 department="Neurology", specialization="Neurology")
+
+# Assign patients to doctors
+doctor1.add_patient(patient1)
+doctor2.add_patient(patient2)
+
+# Create Nurses
+nurse1 = Nurse("Nurse Sarah Connor", 35, "Female", staff_id=3001,
+               department="General Medicine", shift="Day")
+nurse2 = Nurse("Nurse Tom Harris", 40, "Male", staff_id=3002,
+               department="Neurology", shift="Night")
+
+# Schedule Appointments
+appointment1 = Appointment(appointment_id=5001, patient=patient1,
+                           doctor=doctor1, date="2023-10-15", time="10:00 AM")
+appointment2 = Appointment(appointment_id=5002, patient=patient2,
+                           doctor=doctor2, date="2023-10-16", time="02:00 PM")
+
+# Add appointments to patients
+patient1.schedule_appointment(appointment1)
+patient2.schedule_appointment(appointment2)
+
+# Print out details
+print("--- Patients ---")
+print(patient1)
+print(patient2)
+
+print("\n--- Doctors ---")
+print(doctor1)
+print(doctor2)
+
+print("\n--- Nurses ---")
+print(nurse1)
+print(nurse2)
+
+print("\n--- Appointments ---")
+print(appointment1)
+print(appointment2)
+
+print("\n--- Doctor's Patients ---")
+print(f"{doctor1.name}'s Patients: {[patient.name for patient in doctor1.patients]}")
+print(f"{doctor2.name}'s Patients: {[patient.name for patient in doctor2.patients]}")
+
+print("\n--- Patient's Appointments ---")
+for appointment in patient1.appointments:
+    print(f"{patient1.name} has an appointment with {appointment.doctor.name} on {appointment.date} at {appointment.time}")
+for appointment in patient2.appointments:
+    print(f"{patient2.name} has an appointment with {appointment.doctor.name} on {appointment.date} at {appointment.time}")
+

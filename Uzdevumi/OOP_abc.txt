@@ -1,0 +1,36 @@
+Exercise: Modeling Geometric Shapes with Abstract Base Classes
+
+Problem:
+You are developing a program that calculates the area and perimeter of different geometric shapes. To ensure that all shapes have methods to calculate area and perimeter, you decide to use an abstract base class.
+
+Requirements:
+Create an abstract base class Shape using the abc module.
+
+Abstract Methods:
+area(self): Abstract method to calculate the area of the shape.
+perimeter(self): Abstract method to calculate the perimeter of the shape.
+Create concrete subclasses that inherit from Shape:
+
+Rectangle
+Attributes:
+width: The width of the rectangle.
+height: The height of the rectangle.
+Implement the abstract methods:
+area(self): Calculates the area of the rectangle.
+perimeter(self): Calculates the perimeter of the rectangle.
+
+Circle
+Attributes:
+radius: The radius of the circle.
+Implement the abstract methods:
+area(self): Calculates the area of the circle.
+perimeter(self): Calculates the circumference of the circle.
+
+Demonstrate the usage:
+Create instances of Rectangle and Circle.
+Calculate and print the area and perimeter of each shape.
+Tasks:
+
+Define the abstract base class Shape with the required abstract methods.
+Implement the concrete subclasses Rectangle and Circle.
+Create instances and demonstrate the calculation of area and perimeter.

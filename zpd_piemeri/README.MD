@@ -1,1 +1,1 @@
-Te būs daži piemēri zpd
+Te būs noderīga informācija priekš ZPD.

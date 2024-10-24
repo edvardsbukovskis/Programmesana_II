@@ -1,0 +1,34 @@
+Situācijas apraksts: Sporta kluba vadības sistēma
+Jums ir uzdots izveidot datubāzi sporta klubam, kurā tiek pārvaldīta informācija par dalībniekiem, treneriem un sporta nodarbībām. Sporta kluba sistēma pārvalda sekojošo informāciju:
+
+Dalībnieki: Sporta klubam ir vairāki dalībnieki. Katram dalībniekam ir unikāls identifikācijas numurs, vārds, uzvārds, dzimšanas datums, kontakttālrunis un e-pasts.
+
+Treneri: Sporta klubs nodarbina vairākus trenerus. Katram trenerim ir unikāls identifikācijas numurs, vārds, uzvārds, specializācija (piemēram, aerobika, svarcelšana) un kontakttālrunis.
+
+Nodarbības: Klubā tiek organizētas vairākas nodarbības. Katru nodarbību vada viens treneris. Katrai nodarbībai ir unikāls identifikācijas numurs, nosaukums, sākuma datums, norises laiks un cena.
+
+Dalība nodarbībās: Katrs dalībnieks var piedalīties vairākās nodarbībās, un katrā nodarbībā var piedalīties vairāki dalībnieki. Par katru dalību nodarbībā tiek reģistrēts dalībnieka ID un nodarbības ID, kā arī datums, kad dalībnieks ir reģistrējies.
+
+Uzdevums:
+Identificē entitātes:
+
+Pamatojoties uz aprakstu, identificē visas galvenās entitātes (piemēram, "Dalībnieks", "Treneris", "Nodarbība", utt.).
+Identificē atribūtus:
+
+Norādi katras entitātes atribūtus. Piemēram, "Dalībnieks" entitātei ir atribūti: DalībniekaID, Vārds, Uzvārds, Dzimšanas datums, Kontakttālrunis, E-pasts.
+Identificē attiecības:
+
+Nosaki attiecības starp entitātēm. Piemēram, viens treneris vada vairākas nodarbības, un viens dalībnieks var piedalīties vairākās nodarbībās.
+Izveido konceptuālo modeli:
+
+Zīmē ER modeli, izmantojot identificētās entitātes, to atribūtus un attiecības starp tām.
+
+Norādījumi:
+Entitātes apzīmē ar taisnstūriem.
+Atribūtus raksti aplīšos vai ovālos, kas ir piesaistīti attiecīgajai entitātei.
+Attiecības apzīmē ar rombiem, kas savieno entitātes, norādot to savstarpējās attiecības.
+
+Papildu jautājumi pārdomām:
+Kāda attiecība ir starp dalībniekiem un nodarbībām? (viens pret daudziem, daudzi pret daudziem utt.)
+Vai nepieciešams pievienot papildinformāciju par katru reģistrēšanos (piemēram, reģistrācijas datumu)?
+Vai kāda no entitātēm vai attiecībām prasa īpašus ierobežojumus (piemēram, nodarbības var vadīt tikai viens treneris)?

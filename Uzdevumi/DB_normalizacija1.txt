@@ -1,0 +1,29 @@
+Praktiskais uzdevums: Normalizācija restorāna rezervāciju sistēmai
+Situācijas apraksts
+Iedomājieties, ka jūsu uzdevums ir izveidot datu bāzi neliela restorāna rezervāciju sistēmai. Šobrīd ir viena tabula, kurā glabājas visa informācija par rezervācijām, taču tā ir neefektīva un satur liekus datus. Jums ir jānormalizē šī tabula, sadalot to vairākās atbilstošās tabulās.
+
+Sākotnējā tabula
+Rezervācijas_ID	Klienta_vārds	Klienta_tel	Rezervācijas_datums	Galdiņa_nr	Apkalpotājs	Apkalpotāja_tel
+1	                Anna	        29912345	    2024-11-02	        5	          Jānis	      27891234
+2	                Māris	        29123456	    2024-11-02	        5	          Jānis	      27891234
+3	                Laura	        29876543	    2024-11-03	        6	          Sandra	    29117890
+4	                Anna	        29912345	    2024-11-04	        8	          Jānis	      27891234
+5	                Māris	        29123456	    2024-11-04	        6	          Sandra	     29117890
+  
+Uzdevums
+Analizējiet tabulu un identificējiet problēmas:
+
+Vai šajā tabulā ir lieki dati?
+Vai katrs atribūts ir pilnībā atkarīgs no primārās atslēgas?
+Normalizējiet tabulu līdz 3NF:
+
+Sadaliet tabulu vairākās loģiskās tabulās, izmantojot normalizācijas soļus:
+1NF: Izveidojiet tabulas ar vienkāršām vērtībām.
+2NF: Nodrošiniet, ka katrs atribūts ir pilnībā atkarīgs no primārās atslēgas.
+3NF: Novērsiet netiešās jeb transitīvās atkarības.
+Rezultāta pārbaude:
+
+Pārliecinieties, ka jaunās tabulas ir strukturētas tā, lai datus būtu viegli papildināt un uzturēt bez liekas informācijas.
+Padomi risinājumam
+Apsveriet, vai kolonnas Klienta_vārds un Klienta_tel ir pilnībā atkarīgas no rezervācijas.
+Pārbaudiet, vai ir nepieciešama Apkalpotāja_tel informācija katrā rezervācijā, vai arī to var glabāt citur.

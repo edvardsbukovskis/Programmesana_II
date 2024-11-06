@@ -1,0 +1,24 @@
+Uzdevums: Kino biļešu rezervācijas sistēma
+Uzdevuma apraksts:
+
+Izveidojiet datubāzi, kas pārvalda kino biļešu rezervācijas sistēmu. Datubāzē ir jāuzglabā informācija par kinoteātriem, filmām, seansiem un rezervācijām, ko veic klienti.
+
+Prasības:
+
+Katra filma tiek rādīta vairākos seansos, un katrs seanss notiek konkrētā kinozālē.
+Katrs klients var rezervēt vairākas biļetes uz dažādiem seansiem.
+Kinozāle var rīkot vairākus seansus, taču vienā seansā var piedalīties vairāki klienti.
+Soļi uzdevuma risināšanai:
+Izveidojiet ER diagrammas (konceptuālo, loģisko un fizisko)
+
+Identificējiet entītijas: Film, Theater (kinozāle), Show (seanss), Customer (klients), Reservation (rezervācija).
+Definējiet attiecības starp entītijām.
+Izveidojiet konceptuālo modeli, norādot attiecību veidu starp entītijām.
+Loģiskajā un fiziskajā modelī pievienojiet nepieciešamos laukus, norādot datu tipa specifikācijas un ārējās atslēgas.
+Pārliecinieties, ka tabulas atbilst 3NF
+
+Pārbaudiet katru tabulu un nodrošiniet, ka tās atbilst trešās normālformas prasībām.
+SQL koda rakstīšana tabulu izveidei un datu ievietošanai
+
+Izveidojiet tabulas ar SQL komandu palīdzību.
+Ievietojiet paraugdatus katrā tabulā.

@@ -67,3 +67,29 @@ INSERT INTO Orders (CustomerID, BookID, OrderDate, Quantity) VALUES
 (4, 4, '2023-06-07', 3),
 (5, 5, '2023-06-09', 1),
 (1, 6, '2023-06-15', 1);
+
+
+
+Vieglais līmenis
+    Izgūt visu grāmatu nosaukumus un to cenas.
+
+    Izveidot sarakstu ar visiem autoriem, kuri ir no Apvienotās Karalistes.
+
+    Parādīt visus pasūtījumus, ko veicis klients ar vārdu "Alice Johnson".
+
+Vidējais līmenis
+    Noskaidrot kopējo grāmatu skaitu, kas pieejamas žanrā "Fantāzija".
+
+    Izveidot sarakstu ar visām grāmatām kopā ar to autoru vārdiem un izcelsmes valstīm.
+
+    Aprēķināt kopējo ieņēmumu, ko radījusi katra grāmata.
+
+Grūtais līmenis
+
+    Atrast klientu, kurš ir iztērējis visvairāk naudas pasūtījumiem.
+
+    Izveidot sarakstu ar visiem veikalā pieejamajiem žanriem un vidējo cenu katram žanram.
+
+    Atrast 3 visbiežāk pasūtītās grāmatas.
+
+    Atrast klientus, kuri pievienojās 2023. gadā, bet nav veikuši nevienu pasūtījumu.

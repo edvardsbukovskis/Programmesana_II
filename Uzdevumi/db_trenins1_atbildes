@@ -1,0 +1,99 @@
+Vieglais līmenis
+  
+Izgūt visu grāmatu nosaukumus un to cenas.
+
+sql
+Copy code
+SELECT Title, Price FROM Books;
+
+
+Izveidot sarakstu ar visiem autoriem, kuri ir no Apvienotās Karalistes.
+
+sql
+Copy code
+SELECT Name FROM Authors WHERE Country = 'United Kingdom';
+
+
+Parādīt visus pasūtījumus, ko veicis klients ar vārdu "Alice Johnson".
+
+sql
+Copy code
+SELECT * FROM Orders 
+JOIN Customers ON Orders.CustomerID = Customers.CustomerID
+WHERE Customers.Name = 'Alice Johnson';
+
+
+Vidējais līmenis
+
+  
+Noskaidrot kopējo grāmatu skaitu, kas pieejamas žanrā "Fantāzija".
+
+sql
+Copy code
+SELECT COUNT(*) FROM Books WHERE Genre = 'Fantasy';
+
+
+Izveidot sarakstu ar visām grāmatām kopā ar to autoru vārdiem un izcelsmes valstīm.
+
+sql
+Copy code
+SELECT Books.Title, Authors.Name AS AuthorName, Authors.Country 
+FROM Books
+JOIN Authors ON Books.AuthorID = Authors.AuthorID;
+
+
+Aprēķināt kopējo ieņēmumu, ko radījusi katra grāmata.
+
+sql
+Copy code
+SELECT Books.Title, SUM(Orders.Quantity * Books.Price) AS TotalRevenue
+FROM Orders
+JOIN Books ON Orders.BookID = Books.BookID
+GROUP BY Books.Title;
+
+Grūtais līmenis
+
+  
+Atrast klientu, kurš ir iztērējis visvairāk naudas pasūtījumiem.
+
+sql
+Copy code
+SELECT Customers.Name, SUM(Orders.Quantity * Books.Price) AS TotalSpent
+FROM Orders
+JOIN Customers ON Orders.CustomerID = Customers.CustomerID
+JOIN Books ON Orders.BookID = Books.BookID
+GROUP BY Customers.Name
+ORDER BY TotalSpent DESC
+LIMIT 1;
+
+
+Izveidot sarakstu ar visiem veikalā pieejamajiem žanriem un vidējo cenu katram žanram.
+
+sql
+Copy code
+SELECT Genre, AVG(Price) AS AveragePrice
+FROM Books
+GROUP BY Genre;
+
+
+Atrast 3 visbiežāk pasūtītās grāmatas.
+
+sql
+Copy code
+SELECT Books.Title, SUM(Orders.Quantity) AS TotalOrdered
+FROM Orders
+JOIN Books ON Orders.BookID = Books.BookID
+GROUP BY Books.Title
+ORDER BY TotalOrdered DESC
+LIMIT 3;
+
+
+Atrast klientus, kuri pievienojās 2023. gadā, bet nav veikuši nevienu pasūtījumu.
+
+sql
+Copy code
+SELECT Name 
+FROM Customers
+WHERE JoinDate LIKE '2023%' AND CustomerID NOT IN (
+    SELECT DISTINCT CustomerID FROM Orders
+);

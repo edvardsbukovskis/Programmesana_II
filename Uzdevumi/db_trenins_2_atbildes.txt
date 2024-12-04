@@ -1,0 +1,47 @@
+Atbildes uz uzdevumiem
+  
+----------------Vieglā līmeņa uzdevumi---------------
+
+SELECT Name, Major FROM Students;
+
+SELECT Name, Credits FROM Courses WHERE Credits >= 5;
+
+SELECT Name, Department FROM Professors;
+
+-----------------Vidēja līmeņa uzdevumi---------------
+
+SELECT Name, EnrollmentYear FROM Students WHERE EnrollmentYear > 2020;
+
+SELECT Department, SUM(Credits) AS TotalCredits FROM Courses GROUP BY Department;
+
+SELECT DISTINCT Students.Name
+FROM Students
+JOIN Enrollments ON Students.StudentID = Enrollments.StudentID
+WHERE Grade = 'A';
+
+SELECT Department, COUNT(*) AS ProfessorCount FROM Professors GROUP BY Department;
+
+SELECT Courses.Name, COUNT(*) AS StudentCount
+FROM Enrollments
+JOIN Courses ON Enrollments.CourseID = Courses.CourseID
+GROUP BY Courses.CourseID
+HAVING COUNT(*) > 10;
+
+
+----------------Grūtā līmeņa uzdevumi----------------
+
+SELECT Students.Name
+FROM Students
+JOIN Enrollments ON Students.StudentID = Enrollments.StudentID
+JOIN Courses ON Enrollments.CourseID = Courses.CourseID
+GROUP BY Students.StudentID
+HAVING SUM(Courses.Credits) > 15;
+
+SELECT Name
+FROM Professors
+WHERE Department IN (
+    SELECT Department
+    FROM Courses
+    GROUP BY Department
+    HAVING COUNT(*) >= 3
+);

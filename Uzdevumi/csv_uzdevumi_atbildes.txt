@@ -1,0 +1,162 @@
+Uzdevums 1: Rindu skaitīšana
+
+Izveidojiet Python skriptu, kas nolasa failu Electric_Vehicle_Population_Data.csv un izdrukā kopējo rindu skaitu failā (ieskaitot galvenes rindu).
+
+import csv
+
+with open('Electric_Vehicle_Population_Data.csv', 'r', encoding='utf-8') as csvfile:
+    reader = csv.reader(csvfile)
+    rindu_skaits = 0
+    for rinda in reader:
+        rindu_skaits += 1
+    print(f"Kopējais rindu skaits: {rindu_skaits}")
+Use code with caution.
+Python
+Uzdevums 2: Kolonnu nosaukumu iegūšana
+
+Izveidojiet skriptu, kas nolasa failu un izdrukā tikai kolonnu nosaukumus (galvenes rindu).
+
+import csv
+
+with open('Electric_Vehicle_Population_Data.csv', 'r', encoding='utf-8') as csvfile:
+    reader = csv.reader(csvfile)
+    galvene = next(reader)  # Iegūst pirmo rindu (galveni)
+    print(galvene)
+Use code with caution.
+Python
+Uzdevums 3: Pirmo 5 datu rindu izdrukāšana
+
+Izveidojiet skriptu, kas nolasa failu un izdrukā pirmās 5 datu rindas (pēc galvenes rindas).
+
+import csv
+
+with open('Electric_Vehicle_Population_Data.csv', 'r', encoding='utf-8') as csvfile:
+    reader = csv.reader(csvfile)
+    next(reader)  # Izlaižam galvenes rindu
+    for i, rinda in enumerate(reader):
+        if i < 5:
+            print(rinda)
+        else:
+            break  # Pārtraucam ciklu pēc 5 rindām
+Use code with caution.
+Python
+Uzdevums 4: Atsevišķas kolonnas vērtību izvadīšana.
+Izveidojiet skriptu, kur lietotājs ievada kolonnas nosaukumu un tiek izvadītas visu ierakstu vērtības šajā kolonnā.
+
+import csv
+
+with open('Electric_Vehicle_Population_Data.csv', 'r', encoding='utf-8') as csvfile:
+    reader = csv.DictReader(csvfile)
+    kolonna = input("Ievadiet kolonnas nosaukumu, kuru vēlaties izvadīt:")
+    if kolonna not in reader.fieldnames:
+      print(f"Kļūda, {kolonna} neatrodas starp kolonnu nosaukumiem")
+    else:
+      for row in reader:
+          print(row[kolonna])
+Use code with caution.
+Python
+Vidējais līmenis (Filtrēšana un atlase)
+Šie uzdevumi ietver nosacījumu izmantošanu, lai atlasītu noteiktas rindas.
+
+Uzdevums 5: Filtrēšana pēc markas
+
+Izveidojiet skriptu, kas jautā lietotājam ievadīt automašīnas marku (piemēram, "TESLA") un izvada visas rindas, kurās norādīta šī marka.
+
+import csv
+marka = input("Ievadiet automašīnas marku: ").upper()  # Pārvēršam uz lielajiem burtiem, lai ignorētu reģistru
+with open('Electric_Vehicle_Population_Data.csv', 'r', encoding='utf-8') as csvfile:
+  reader = csv.reader(csvfile)
+  next(reader) # Izlaižam galveni
+  for rinda in reader:
+      if len(rinda) > 5 and rinda[5].upper() == marka:  # 6. kolonna ir "Make".  .upper() salīdzināšanai
+          print(rinda)
+Use code with caution.
+Python
+Uzdevums 6: Filtrēšana pēc diviem kritērijiem
+
+Izveidojiet skriptu, kas atlasa un izdrukā rindas, kurās:
+
+"Electric Vehicle Type" ir "Battery Electric Vehicle (BEV)"
+
+"Model" ir "MODEL 3"
+
+import csv
+
+with open('Electric_Vehicle_Population_Data.csv', 'r', encoding='utf-8') as csvfile:
+    reader = csv.reader(csvfile)
+    next(reader) #Izlaist galveni
+    for rinda in reader:
+        # Pārbaudām, vai rindā ir pietiekami daudz kolonnu
+        if len(rinda) > 7 and rinda[6] == "Battery Electric Vehicle (BEV)" and rinda[5] == "MODEL 3":
+          print(rinda)
+Use code with caution.
+Python
+Uzdevums 7: Izveidojiet csv failu, kurā saglabājas tikai tie ieraksti, kuru "Electric Range" ir lielāks par 100.
+
+import csv
+with open('Electric_Vehicle_Population_Data.csv', 'r', encoding='utf-8') as csvfile, open('filtered_data.csv','w',newline='', encoding='utf-8') as new_file:
+    reader = csv.reader(csvfile)
+    writer = csv.writer(new_file)
+    header = next(reader) #Iegūstam galveni
+    writer.writerow(header) #Ierakstam galveni jaunajā failā
+    for row in reader:
+        try:
+            if int(row[9]) > 100: #Iegūstam 10.kolonnas vērtību, pārvēršot to par veselu skaitli.
+                writer.writerow(row) #Ierakstam to jaunajā failā
+        except ValueError:
+          pass
+Use code with caution.
+Python
+Padziļināts līmenis (Datu apstrāde)
+Šie uzdevumi prasa sarežģītāku loģiku un var ietvert vairāku darbību kombinēšanu.
+
+Uzdevums 8: Vidējā diapazona aprēķins
+Izveidojiet skriptu, kas aprēķina un izdrukā vidējo "Electric Range" vērtību visām automašīnām failā. Ignorējiet rindas, kurās "Electric Range" vērtība nav derīgs skaitlis.
+
+import csv
+with open('Electric_Vehicle_Population_Data.csv', 'r', encoding='utf-8') as csvfile:
+  reader = csv.reader(csvfile)
+  next(reader) #Izlaist galveni
+  total_range = 0
+  count = 0
+  for row in reader:
+      try:
+          range_value = int(row[9])  #Mēģinam iegūt 10.kolonnas vērtību kā skaitli
+          total_range += range_value
+          count += 1
+      except ValueError:
+          pass  # Ignorējam nederīgas vērtības
+  if count > 0:
+    average_range = total_range / count
+    print(f"Vidējais Electric Range: {average_range}")
+  else:
+     print(f"Nav datu par Electric Range")
+Use code with caution.
+Python
+Uzdevums 9: Datu grupēšana un skaitīšana
+
+Izveidojiet skriptu, kas saskaita, cik automašīnu ir no katras "State" (štata). Rezultātus izvadiet šādi:
+
+WA: 12000
+CA: 5000
+...
+Use code with caution.
+import csv
+
+state_counts = {}  # Vārdnīca, kurā glabāsim skaitu
+
+with open('Electric_Vehicle_Population_Data.csv', 'r', encoding='utf-8') as csvfile:
+    reader = csv.reader(csvfile)
+    next(reader)  # Izlaist galveni
+    for row in reader:
+      try:
+        state = row[3] # 4.kolonna
+        if state in state_counts:
+            state_counts[state] += 1
+        else:
+            state_counts[state] = 1
+      except:
+        pass
+
+for state, count in state_counts.items():
+    print(f"{state}: {count}")

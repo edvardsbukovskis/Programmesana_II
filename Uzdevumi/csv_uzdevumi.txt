@@ -1,0 +1,25 @@
+Uzdevums 1: Rindu skaitīšana
+Izveidojiet Python skriptu, kas nolasa failu Electric_Vehicle_Population_Data.csv un izdrukā kopējo rindu skaitu failā (ieskaitot galvenes rindu).
+
+Uzdevums 2: Kolonnu nosaukumu iegūšana
+Izveidojiet skriptu, kas nolasa failu un izdrukā tikai kolonnu nosaukumus (galvenes rindu).
+
+Uzdevums 3: Pirmo 5 datu rindu izdrukāšana
+Izveidojiet skriptu, kas nolasa failu un izdrukā pirmās 5 datu rindas (pēc galvenes rindas).
+
+Uzdevums 4: Atsevišķas kolonnas vērtību izvadīšana.
+Izveidojiet skriptu, kur lietotājs ievada kolonnas nosaukumu un tiek izvadītas visu ierakstu vērtības šajā kolonnā.
+
+Uzdevums 5: Filtrēšana pēc markas
+Izveidojiet skriptu, kas jautā lietotājam ievadīt automašīnas marku (piemēram, "TESLA") un izvada visas rindas, kurās norādīta šī marka.
+
+Uzdevums 6: Filtrēšana pēc diviem kritērijiem
+Izveidojiet skriptu, kas atlasa un izdrukā rindas, kurās:
+
+Uzdevums 7: Izveidojiet csv failu, kurā saglabājas tikai tie ieraksti, kuru "Electric Range" ir lielāks par 100.
+
+Uzdevums 8: Vidējā diapazona aprēķins
+Izveidojiet skriptu, kas aprēķina un izdrukā vidējo "Electric Range" vērtību visām automašīnām failā. Ignorējiet rindas, kurās "Electric Range" vērtība nav derīgs skaitlis.
+
+Uzdevums 9: Datu grupēšana un skaitīšana
+Izveidojiet skriptu, kas saskaita, cik automašīnu ir no katras "State" (štata). Rezultātus izvadiet šādi:

@@ -14,7 +14,9 @@ Uzdevums 5: Filtrēšana pēc markas
 Izveidojiet skriptu, kas jautā lietotājam ievadīt automašīnas marku (piemēram, "TESLA") un izvada visas rindas, kurās norādīta šī marka.
 
 Uzdevums 6: Filtrēšana pēc diviem kritērijiem
-Izveidojiet skriptu, kas atlasa un izdrukā rindas, kurās:
+Izveidojiet skriptu, kas atlasa un izdrukā rindas, kurās: 
+"Electric Vehicle Type" ir "Battery Electric Vehicle (BEV)"
+"Model" ir "MODEL 3"
 
 Uzdevums 7: Izveidojiet csv failu, kurā saglabājas tikai tie ieraksti, kuru "Electric Range" ir lielāks par 100.
 
@@ -23,3 +25,6 @@ Izveidojiet skriptu, kas aprēķina un izdrukā vidējo "Electric Range" vērtī
 
 Uzdevums 9: Datu grupēšana un skaitīšana
 Izveidojiet skriptu, kas saskaita, cik automašīnu ir no katras "State" (štata). Rezultātus izvadiet šādi:
+WA: 12000
+CA: 5000
+...

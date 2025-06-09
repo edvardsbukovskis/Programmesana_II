@@ -169,3 +169,183 @@ print(f"{biroja_darb.vards} alga: {alga1} EUR")
 
 alga2 = prog.aprekinat_algu(10)
 print(f"{prog.vards} alga: {alga2} EUR")
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Uzdevuma 4 risinājums:
+
+# 1. Bāzes klase, kas apraksta jebkuru transportlīdzekli
+class Transportlidzeklis:
+    # Konstruktors, kas inicializē kopīgās īpašības
+    def __init__(self, razotajs, modelis, max_atrums):
+        self.razotajs = razotajs
+        self.modelis = modelis
+        self.max_atrums = int(max_atrums)
+
+    # Metode, kas izdrukā pamatinformāciju
+    def paradit_datus(self):
+        print(f"Ražotājs: {self.razotajs}")
+        print(f"Modelis: {self.modelis}")
+        print(f"Maksimālais ātrums: {self.max_atrums} km/h")
+
+# 2. Atvasinātā klase, kas manto no 'Transportlidzeklis'
+class Automobilis(Transportlidzeklis):
+    # Konstruktors saņem visus datus - gan kopīgos, gan specifiskos
+    def __init__(self, razotajs, modelis, max_atrums, degvielas_tilpums):
+        # Izsaucam bāzes klases konstruktoru, lai tas paveic savu darbu -
+        # inicializē ražotāju, modeli un ātrumu.
+        super().__init__(razotajs, modelis, max_atrums)
+        
+        # Pievienojam tikai šai klasei unikālo atribūtu
+        self.degvielas_tilpums = int(degvielas_tilpums)
+
+    # Pārdefinējam (override) metodi, lai pievienotu specifisku informāciju
+    def paradit_datus(self):
+        print("--- Automobiļa dati ---")
+        # Vispirms izsaucam oriģinālo metodi no bāzes klases, lai nav jāpārraksta kods
+        super().paradit_datus()
+        # Pievienojam klāt tikai automobiļa specifisko informāciju
+        print(f"Degvielas bākas tilpums: {self.degvielas_tilpums} l")
+
+# 3. Vēl viena atvasinātā klase
+class Elektroskrejritenis(Transportlidzeklis):
+    def __init__(self, razotajs, modelis, max_atrums, baterijas_ietilpiba):
+        super().__init__(razotajs, modelis, max_atrums)
+        self.baterijas_ietilpiba = float(baterijas_ietilpiba)
+
+    # Arī šeit pārdefinējam metodi, lai tā atbilstu skrejriteņa specifikai
+    def paradit_datus(self):
+        print("--- Elektriskā skrejriteņa dati ---")
+        super().paradit_datus()
+        print(f"Baterijas ietilpība: {self.baterijas_ietilpiba} kWh")
+
+# === Galvenā programmas daļa ===
+# Izveidojam vienu 'Automobilis' objektu
+auto = Automobilis("Volkswagen", "Passat", 220, 66)
+
+# Izveidojam vienu 'Elektroskrejritenis' objektu
+skrejritenis = Elektroskrejritenis("Xiaomi", "Mi Pro 2", 25, 0.474)
+
+# Izsaucam abiem objektiem to pašu metodi ar nosaukumu 'paradit_datus'
+# Programma pati saprot, kuru metodes versiju (automobiļa vai skrejriteņa) izsaukt.
+auto.paradit_datus()
+print("\n") # Izdrukājam tukšu rindu labākai pārskatāmībai
+skrejritenis.paradit_datus()
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Uzdevuma 5 risinājums:
+
+# Lai piešķirtu nelielu nejaušību cīņai (nav obligāti, bet padara interesantāku)
+import time
+import random
+
+# 1. Bāzes klase, kas definē kopīgās īpašības visiem varoņiem
+class Varonis:
+    def __init__(self, vards, dzivibas, uzbrukuma_speks):
+        self.vards = vards
+        self.dzivibas = int(dzivibas)
+        self.uzbrukuma_speks = int(uzbrukuma_speks)
+
+    def sanemt_bojajumu(self, bojajums):
+        """Samazina dzīvības par saņemtā bojājuma apjomu."""
+        self.dzivibas -= bojajums
+        # Pārbaudām, lai dzīvības nebūtu negatīvas
+        if self.dzivibas < 0:
+            self.dzivibas = 0
+
+    def uzbrukt(self, merkis):
+        """Bāzes klases uzbrukums. Atvasinātās klases to pārdefinēs."""
+        print(f"{self.vards} veic standarta uzbrukumu {merkis.vards}!")
+        # Izsaucam mērķa metodi, lai tas saņemtu bojājumu
+        merkis.sanemt_bojajumu(self.uzbrukuma_speks)
+
+    def paradit_statusu(self):
+        """Izdrukā varoņa pašreizējo stāvokli."""
+        print(f"  -> {self.vards} [HP: {self.dzivibas}]")
+
+    def ir_dzivs(self):
+        """Atgriež True, ja varonis vēl ir dzīvs."""
+        return self.dzivibas > 0
+
+# 2. Atvasinātā klase Bruņiniekam
+class Bruninieks(Varonis):
+    def __init__(self, vards, dzivibas, uzbrukuma_speks, izturiba):
+        # Izsaucam bāzes klases konstruktoru, lai inicializētu kopīgās īpašības
+        super().__init__(vards, dzivibas, uzbrukuma_speks)
+        # Pievienojam unikālo atribūtu
+        self.izturiba = int(izturiba)
+
+    # Pārdefinējam uzbrukuma metodi ar īpašu loģiku
+    def uzbrukt(self, merkis):
+        if self.izturiba >= 10:
+            bojajums = self.uzbrukuma_speks * 2
+            print(f"⚔️ {self.vards} veic SPĒCĪGU SITIENU pret {merkis.vards}, nodarot {bojajums} bojājumu!")
+            self.izturiba -= 10
+            merkis.sanemt_bojajumu(bojajums)
+        else:
+            print(f"⚔️ {self.vards} ir noguris un veic parastu uzbrukumu pret {merkis.vards}!")
+            # Ja nav spēka, izmantojam bāzes klases uzbrukumu
+            super().uzbrukt(merkis)
+    
+    # Pārdefinējam statusa rādīšanu, lai redzētu arī izturību
+    def paradit_statusu(self):
+        print(f"  -> {self.vards} [HP: {self.dzivibas}, Izturība: {self.izturiba}]")
+
+# 3. Atvasinātā klase Burvim
+class Burvis(Varonis):
+    def __init__(self, vards, dzivibas, uzbrukuma_speks, mana):
+        super().__init__(vards, dzivibas, uzbrukuma_speks)
+        self.mana = int(mana)
+
+    # Pārdefinējam uzbrukuma metodi ar burvja loģiku
+    def uzbrukt(self, merkis):
+        if self.mana >= 20:
+            bojajums = self.uzbrukuma_speks + 15
+            print(f"🔥 {self.vards} raida UGUNSBUMBU uz {merkis.vards}, nodarot {bojajums} bojājumu!")
+            self.mana -= 20
+            merkis.sanemt_bojajumu(bojajums)
+        else:
+            print(f"💧 {self.vards} trūkst manas, viņš atjauno 5 manas punktus.")
+            self.mana += 5
+    
+    def paradit_statusu(self):
+        print(f"  -> {self.vards} [HP: {self.dzivibas}, Mana: {self.mana}]")
+
+# === Galvenā programmas daļa: Cīņas simulācija ===
+# Izveidojam objektus
+bruninieks = Bruninieks("Sir Lancelot", 100, 10, 30)
+burvis = Burvis("Merlin", 70, 5, 50)
+
+print("--- CĪŅA SĀKAS! ---")
+bruninieks.paradit_statusu()
+burvis.paradit_statusu()
+print("-" * 25)
+
+raunds = 1
+# Cikls turpinās, kamēr abi varoņi ir dzīvi
+while bruninieks.ir_dzivs() and burvis.ir_dzivs():
+    print(f"\n--- RAUNDS {raunds} ---")
+    
+    # Bruņinieks uzbrūk pirmais
+    bruninieks.uzbrukt(burvis)
+    time.sleep(1) # Neliela pauze, lai var izlasīt
+
+    # Pārbaudām, vai burvis vēl ir dzīvs, pirms viņš uzbrūk pretī
+    if burvis.ir_dzivs():
+        burvis.uzbrukt(bruninieks)
+        time.sleep(1)
+    
+    print("\nRaunda beigu statuss:")
+    bruninieks.paradit_statusu()
+    burvis.paradit_statusu()
+    raunds += 1
+    
+print("\n--- CĪŅA BEIGUSIES! ---")
+# Noskaidrojam uzvarētāju
+if bruninieks.ir_dzivs():
+    print(f"🏆 Uzvarēja {bruninieks.vards}!")
+elif burvis.ir_dzivs():
+    print(f"🏆 Uzvarēja {burvis.vards}!")
+else:
+    print("Abpusējs zaudējums, neizšķirts!")

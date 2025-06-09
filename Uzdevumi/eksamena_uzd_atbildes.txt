@@ -1,0 +1,171 @@
+Uzdevuma 1 risinājums: 
+
+# 1. Klases definīcija
+class Gramata:
+    # 2. Konstruktors, kas tiek izsaukts, veidojot jaunu objektu.
+    # 'self' ir atsauce uz pašu objektu, kas tiek veidots.
+    def __init__(self, nosaukums, autors, lappusu_skaits):
+        # 3. Piešķiram konstruktorā saņemtās vērtības objekta atribūtiem.
+        self.nosaukums = nosaukums
+        self.autors = autors
+        self.lappusu_skaits = lappusu_skaits
+        print(f"--- Izveidots jauns Gramata objekts: '{self.nosaukums}' ---")
+
+    # 4. Metode, kas izdrukā informāciju par šo konkrēto grāmatu.
+    def paradit_info(self):
+        print(f"Grāmata: \"{self.nosaukums}\"")
+        print(f"Autors: {self.autors}")
+        print(f"Lpp. skaits: {self.lappusu_skaits}")
+
+# === Galvenā programmas daļa ===
+
+print("Ievadiet informāciju par pirmo grāmatu:")
+# Iegūstam datus no lietotāja
+nosaukums1 = input("Ievadiet nosaukumu: ")
+autors1 = input("Ievadiet autoru: ")
+# Svarīgi! input() atgriež tekstu, tāpēc tas jāpārveido par skaitli (int)
+lpp1 = int(input("Ievadiet lappušu skaitu: "))
+
+# Izveidojam pirmo 'Gramata' objektu, izmantojot ievadītos datus
+gramata1 = Gramata(nosaukums1, autors1, lpp1)
+
+print("\nIevadiet informāciju par otro grāmatu:")
+nosaukums2 = input("Ievadiet nosaukumu: ")
+autors2 = input("Ievadiet autoru: ")
+lpp2 = int(input("Ievadiet lappušu skaitu: "))
+
+# Izveidojam otro 'Gramata' objektu
+gramata2 = Gramata(nosaukums2, autors2, lpp2)
+
+print("\n=== Apkopota informācija par grāmatām ===")
+# Izsaucam metodi pirmajam objektam
+gramata1.paradit_info()
+print("--------------------")
+# Izsaucam metodi otrajam objektam
+gramata2.paradit_info()
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Uzdevuma 2 risinājums: Klase BankasKonts
+
+class BankasKonts:
+    # Konstruktors inicializē kontu ar īpašnieku un sākuma bilanci
+    def __init__(self, ipasnieks, bilance):
+        self.ipasnieks = ipasnieks
+        # Pārvēršam bilanci par decimālskaitli, lai izvairītos no kļūdām
+        self.bilance = float(bilance)
+
+    # Metode, kas parāda pašreizējo stāvokli
+    def paradit_bilanci(self):
+        # Formatējam izvadi, lai rādītu 2 ciparus aiz komata (kā naudu)
+        print(f"Īpašnieks: {self.ipasnieks}, Bilance: {self.bilance:.2f} EUR")
+
+    # Metode, lai pievienotu naudu kontam
+    def ieskaitit(self, summa):
+        summa = float(summa)
+        if summa > 0: # Pārbaudām, vai summa ir pozitīva
+            self.bilance += summa
+            print(f"Ieskaitīti {summa:.2f} EUR. Jaunā bilance: {self.bilance:.2f} EUR")
+        else:
+            print("Kļūda: Ieskaitāmā summa nevar būt negatīva vai nulle.")
+
+    # Metode, lai izņemtu naudu no konta
+    def iznemt(self, summa):
+        summa = float(summa)
+        # Pārbaudām, vai kontā ir pietiekami daudz naudas
+        if summa <= self.bilance and summa > 0:
+            self.bilance -= summa
+            print(f"Izņemti {summa:.2f} EUR. Jaunā bilance: {self.bilance:.2f} EUR")
+        elif summa <= 0:
+            print("Kļūda: Izņemamā summa nevar būt negatīva vai nulle.")
+        else:
+            print(f"Kļūda: Nepietiek līdzekļu! Jūsu kontā ir tikai {self.bilance:.2f} EUR.")
+
+# === Galvenā programmas daļa ===
+print("--- Tiek izveidots jauns bankas konts ---")
+# Izveidojam objektu ar sākuma bilanci 100 EUR
+mans_konts = BankasKonts("Jānis Bērziņš", 100.0)
+mans_konts.paradit_bilanci()
+print("-" * 20)
+
+print("\n--- Darbības ar kontu ---")
+# Veicam dažādas operācijas
+mans_konts.ieskaitit(50.50)
+mans_konts.iznemt(200) # Mēģinājums izņemt vairāk, nekā ir
+mans_konts.iznemt(75.50)
+print("-" * 20)
+
+print("\n--- Konta gala stāvoklis ---")
+mans_konts.paradit_bilanci()
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Uzdevuma 3 risinājums: Mantošana ar Darbinieks klasēm
+
+# 1. Bāzes klase, kas satur kopīgās īpašības visiem darbiniekiem
+class Darbinieks:
+    def __init__(self, vards, uzvards, nostradatas_stundas):
+        self.vards = vards
+        self.uzvards = uzvards
+        self.nostradatas_stundas = nostradatas_stundas
+
+    # Metode, kas ir kopīga visiem darbiniekiem
+    def aprekinat_algu(self, likme):
+        return self.nostradatas_stundas * likme
+
+    # Pamata informācijas izvade
+    def radit_info(self):
+        print(f"Darbinieks: {self.vards} {self.uzvards}")
+
+# 2. Atvasinātā klase, kas manto no 'Darbinieks'
+class BirojaDarbinieks(Darbinieks):
+    def __init__(self, vards, uzvards, nostradatas_stundas, kabineta_numurs):
+        # Izsaucam bāzes klases (Darbinieks) konstruktoru, lai tas inicializē
+        # vārdu, uzvārdu un stundas. Tas novērš koda atkārtošanos.
+        super().__init__(vards, uzvards, nostradatas_stundas)
+        
+        # Pievienojam jaunu atribūtu, kas ir unikāls tikai šai klasei
+        self.kabineta_numurs = kabineta_numurs
+
+    # Pārdefinējam (override) 'radit_info' metodi, lai rādītu papildu info
+    def radit_info(self):
+        super().radit_info() # Vispirms izsaucam oriģinālo metodi no bāzes klases
+        print(f"  Pozīcija: Biroja darbinieks")
+        print(f"  Kabinets: {self.kabineta_numurs}")
+
+# 3. Vēl viena atvasinātā klase
+class Programmetajs(Darbinieks):
+    def __init__(self, vards, uzvards, nostradatas_stundas, programesanas_valodas):
+        super().__init__(vards, uzvards, nostradatas_stundas)
+        self.programesanas_valodas = programesanas_valodas
+
+    # Arī šeit pārdefinējam metodi
+    def radit_info(self):
+        super().radit_info()
+        print(f"  Pozīcija: Programmētājs")
+        # '.join' ir ērts veids, kā savienot saraksta elementus vienā rindā
+        print(f"  Valodas: {', '.join(self.programesanas_valodas)}")
+
+# === Galvenā programmas daļa ===
+print("--- Uzņēmuma darbinieku dati ---")
+
+# Izveidojam biroja darbinieka objektu
+biroja_darb = BirojaDarbinieks("Anna Liepa", 40, "305. kab.")
+
+# Izveidojam programmētāja objektu
+# Programmēšanas valodas tiek padotas kā saraksts (list)
+prog = Programmetajs("Kārlis Ozols", 40, ["Python", "JavaScript", "SQL"])
+
+# Attēlojam informāciju par katru darbinieku
+# Katram objektam tiek izsaukta tā paša nosaukuma, bet atšķirīgā versija 'radit_info'
+biroja_darb.radit_info()
+print("-" * 20)
+prog.radit_info()
+
+print("\n--- Algu aprēķins (likme 10 EUR/stundā) ---")
+# Metode 'aprekinat_algu' tiek mantota un nav jāpārraksta
+alga1 = biroja_darb.aprekinat_algu(10)
+print(f"{biroja_darb.vards} alga: {alga1} EUR")
+
+alga2 = prog.aprekinat_algu(10)
+print(f"{prog.vards} alga: {alga2} EUR")

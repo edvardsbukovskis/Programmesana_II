@@ -1,0 +1,25 @@
+Situācijas apraksts:
+Jums ir dots fails busstops.csv, kas satur informāciju par autobusu pieturām Latvijā. Fails ietver tādas kolonnas kā pieturas nosaukums (Stop_name), novads (County), iela (Street), ceļa puse (Road_side) un ģeogrāfiskās koordinātas (Latitude, Longitude).
+Jūsu uzdevums ir izveidot Python programmu, kas veic datu analīzi, secīgi izpildot visus norādītos uzdevumus.
+
+Uzdevumi (kopā 16 punkti):
+1. Datu ielāde un sagatavošana (2 punkti)
+Izveidojiet programmu, kas nolasa datus no busstops.csv faila. Pārliecinieties, ka tiek pareizi nolasīti latviešu alfabēta burti. Saglabājiet datus sarakstā, kur katrs elements ir vārdnīca (dictionary), kas ataino vienu pieturu.
+2. Datu filtrēšana (3 punkti)
+No visiem ielasītajiem datiem atlasiet (nofiltrējiet) tikai tās pieturas, kas atrodas Ogres novadā (kolonna County). Saglabājiet rezultātu jaunā sarakstā.
+3. Kārtošana un datu atlase (4 punkti)
+Iegūto Ogres novada pieturu sarakstu sakārtojiet alfabētiskā secībā pēc pieturas nosaukuma (kolonna Stop_name). Pārskatāmi izdrukājiet konsolē tikai šo pieturu nosaukumus un ielu, kurā tās atrodas (kolonna Street). Ja iela nav norādīta, pieņemiet to kā tukšu lauku.
+
+Paredzamās izvades piemērs:
+Ābelītes - J.Čakstes prospekts
+A. Pumpura iela - Andreja Pumpura iela
+A. Pumpura iela - Andreja Pumpura iela
+... (pārējās pieturas alfabētiskā secībā)
+
+4. Agregēšana (Saskaitīšana) (3 punkti)
+Izmantojot iepriekšējā solī iegūto Ogres novada pieturu sarakstu, saskaitiet un izdrukājiet, cik no tām atrodas ceļa labajā pusē (Labā) un cik kreisajā pusē (Kreisā).
+
+Paredzamās izvades piemērs:
+Ogres novadā pieturas ceļa labajā pusē: [skaits]
+Ogres novadā pieturas ceļa kreisajā pusē: [skaits]
+

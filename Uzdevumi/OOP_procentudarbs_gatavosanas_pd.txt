@@ -1,0 +1,109 @@
+1. Uzdevums: Bankas konta simulators
+Prasības:
+Izveidojiet klasi BankasKonts ar īpašībām: ipasnieks (string) un bilance (float, sākuma vērtība 0.0).
+Klasei jābūt konstruktoram (__init__), kas saņem konta īpašnieka vārdu.
+Pievienojiet metodes:
+ieskaitit(summa): Palielina bilanci.
+iznemt(summa): Samazina bilanci, ja ir pietiekami daudz līdzekļu. Pretējā gadījumā izdrukā kļūdu.
+parbaudit_bilanci(): Izdrukā informāciju par kontu.
+Testēšana: Izveidojiet objektu, veiciet dažādas iemaksas un izmaksas (arī neveiksmīgu), pārbaudiet bilanci pēc katras darbības.
+
+2. Uzdevums: Grāmatu plaukts (Bookshelf)
+Izveidojiet sistēmu, kur viena klase (Grāmatplaukts) pārvalda objektus no citas klases (Grāmata).
+Prasības:
+Izveidojiet klasi Grāmata ar šādām īpašībām:
+nosaukums (string)
+autors (string)
+izdosanas_gads (integer)
+Klasei Grāmata pievienojiet __str__ metodi, kas atgriež skaisti formatētu teksta rindu, piemēram: "Kārlis Skalbe - 'Kaķīša dzirnavas' (1913)".
+Izveidojiet klasi Grāmatplaukts, kurai ir viena īpašība:
+gramatas (saraksts, kurā glabāsies Grāmata objekti)
+Klasei Grāmatplaukts pievienojiet šādas metodes:
+pievienot_gramatu(gramata): Pievieno Grāmata objektu sarakstam.
+paradit_visas_gramatas(): Izdrukā informāciju par visām grāmatām plauktā, izmantojot Grāmata klases __str__ metodi.
+atrast_gramatu_pec_autora(autors): Atrod un izdrukā visas grāmatas, kuras sarakstījis norādītais autors.
+Testēšana: Izveidojiet vairākus Grāmata objektus un vienu Grāmatplaukts objektu. Pievienojiet grāmatas plauktam, attēlojiet visas grāmatas un atrodiet grāmatas pēc konkrēta autora.
+
+Teorētiskā daļa
+
+Konstruktors un self
+Kas ir konstruktors (__init__ metode) Python klasē, un kāds ir tā galvenais uzdevums?
+Izskaidrojiet, ko apzīmē self parametrs klases metodēs. Kāpēc tas ir nepieciešams?
+
+Abstrakcija (Abstraction)
+Kas ir abstrakcija objektorientētajā programmēšanā?
+Sniedziet piemēru no reālās pasaules, kas ilustrē abstrakcijas principu.
+
+Klases mainīgie vs. Instances mainīgie (Class vs. Instance Variables)
+Kas ir klases mainīgais un kas ir instances mainīgais?
+Kāda ir galvenā atšķirība starp tiem (kur tie tiek glabāti un kā tiem piekļūst)? Sniedziet nelielu Python koda piemēru, kas demonstrē šo atšķirību.
+
+
+
+____________________________________________________________________________________________________________________________________________________________________________________________________
+
+Klase BankasKonts (13 punkti):
+__init__ metode (3 punkti):
+(1p) Konstruktors pieņem ipasnieks kā argumentu.
+(1p) self.ipasnieks tiek korekti piešķirta vērtība.
+(1p) self.bilance tiek inicializēta ar 0.0.
+
+ieskaitit() metode (2 punkti):
+(1p) Metode pieņem summa kā argumentu.
+(1p) Metode korekti palielina self.bilance.
+
+iznemt() metode (5 punkti):
+(2p) Tiek veikta pārbaude, vai pieprasītā summa nepārsniedz bilanci.
+(1p) Ja pārbaude veiksmīga, self.bilance tiek korekti samazināta.
+(2p) Ja pārbaude neveiksmīga, tiek izdrukāts kļūdas paziņojums un bilance netiek mainīta.
+
+parbaudit_bilanci() metode (3 punkti):
+(1p) Metode izdrukā konta īpašnieka vārdu.
+(2p) Metode izdrukā korektu un formatētu pašreizējo bilanci.
+
+Testēšana (4 punkti):
+(1p) Ir izveidots BankasKonts objekts.
+(1p) Tiek demonstrēta ieskaitit metodes darbība.
+(1p) Tiek demonstrēta veiksmīga iznemt metodes darbība.
+(1p) Tiek demonstrēta neveiksmīga iznemt metodes darbība.
+
+2. Uzdevums: Grāmatu plaukts (18 punkti)
+Klase Grāmata (5 punkti):
+__init__ metode (2 punkti): Konstruktors korekti inicializē nosaukums, autors un izdosanas_gads.
+__str__ metode (3 punkti):
+(1p) Metode ir definēta.
+(2p) Metode atgriež formatētu teksta rindu, kas satur visus trīs atribūtus.
+
+Klase Grāmatplaukts (9 punkti):
+__init__ metode (1 punkts): Konstruktors inicializē tukšu sarakstu self.gramatas.
+pievienot_gramatu() metode (2 punkti): Metode korekti pievieno padoto Grāmata objektu sarakstam.
+
+paradit_visas_gramatas() metode (3 punkti):
+(1p) Metode iterē (iet cauri) grāmatu sarakstam.
+(2p) Katram objektam sarakstā tiek izsaukta tā __str__ metode (vai vienkārši print(objekts)).
+
+atrast_gramatu_pec_autora() metode (3 punkti):
+(1p) Metode iterē cauri sarakstam.
+(1p) Tiek veikta korekta if pārbaude, salīdzinot autorus.
+(1p) Tiek izdrukāta informācija tikai par atrastajām grāmatām.
+
+Testēšana (4 punkti):
+(1p) Ir izveidoti vismaz divi dažādi Grāmata objekti.
+(1p) Tiek demonstrēta grāmatu pievienošana Grāmatplaukts objektam.
+(1p) Tiek demonstrēta paradit_visas_gramatas metodes darbība.
+(1p) Tiek demonstrēta atrast_gramatu_pec_autora metodes darbība.
+
+Teorētiskā daļa (Kopā: 16 punkti)
+1. Jautājums: Konstruktors un self (4 punkti):
+(2p) Skaidri izskaidrots __init__ mērķis (objekta stāvokļa sākotnējā definēšana).
+(2p) Skaidri izskaidrots, ka self ir atsauce uz konkrēto objektu (instanci).
+
+2. Jautājums: Abstrakcija (5 punkti):
+(2p) Sniegta skaidra abstrakcijas definīcija (sarežģītības slēpšana).
+(3p) Sniegts atbilstošs un labi paskaidrots piemērs no reālās pasaules.
+
+3. Jautājums: Klases vs. Instances mainīgie (7 punkti):
+(1p) Sniegta klases mainīgā definīcija (kopīgs visām instances).
+(1p) Sniegta instances mainīgā definīcija (unikāls katrai instancei).
+(2p) Skaidri izskaidrota galvenā atšķirība.
+(3p) Sniegts korekts un funkcionējošs Python koda piemērs, kas parāda atšķirību.

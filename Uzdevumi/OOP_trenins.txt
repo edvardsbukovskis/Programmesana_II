@@ -1,0 +1,58 @@
+Uzdevuma mērķis: Praktizēties veidot klasi, kas pārvalda savu iekšējo stāvokli (state) – cik naudas ir iemests, cik produktu palicis. Šis uzdevums māca veidot metodes, kas pārbauda nosacījumus pirms darbības izpildes.
+Apraksts:
+Tu programmēsi vienkāršu tirdzniecības automātu. Tam būs noteikti produkti ar savu cenu un daudzumu. Lietotājs varēs ievietot naudu, izvēlēties produktu un saņemt atlikumu. Automātam jāseko līdzi, vai prece ir pieejama un vai ir iemesta pietiekama naudas summa.
+
+Prasības:
+Izveido klasi Produkts:
+Tai jābūt konstruktoram ar atribūtiem: nosaukums, cena un daudzums.
+
+Izveido klasi Automāts:
+Konstruktoram jāizveido divas īpašības:
+produkti (saraksts, kurā glabāsies Produkts objekti).
+ievietotā_nauda (float, sākumā 0.0).
+Izveido metodi ielikt_produktu(produkts), kas pievieno jaunu Produkts objektu automātam.
+Izveido metodi parādīt_produktus(), kas izdrukā visu pieejamo produktu sarakstu (nosaukums, cena, daudzums).
+Izveido metodi ievietot_naudu(summa), kas palielina ievietotā_nauda vērtību un izdrukā pašreizējo kredītu.
+Izveido metodi pirkt(produkta_nosaukums), kurai jāveic šādas pārbaudes:
+Atrast produktu sarakstā pēc nosaukuma. Ja nav atrasts – paziņot.
+Pārbaudīt, vai produkta daudzums ir lielāks par 0. Ja nav – paziņot, ka prece izpārdota.
+Pārbaudīt, vai ievietotā_nauda ir pietiekama, lai nopirktu preci. Ja nav – paziņot.
+
+Ja visas pārbaudes ir veiksmīgas:
+Samazināt produkta daudzums par 1.
+Aprēķināt atlikumu (atlikums = ievietotā_nauda - produkta_cena).
+Atiestatīt ievietotā_nauda uz 0.
+Izdrukāt paziņojumu par veiksmīgu pirkumu un atgriezt atlikumu.
+
+_____________________________________________________________________________________________________________________
+Testēšanas piemērs: 
+
+# 1. Izveidojam produktus
+kola = Produkts("Coca-Cola", 1.50, 5)
+cepumi = Produkts("Selga", 0.80, 1)
+udens = Produkts("Mangaļi", 1.00, 10)
+
+# 2. Izveidojam automātu un piepildām to
+automats = Automāts()
+automats.ielikt_produktu(kola)
+automats.ielikt_produktu(cepumi)
+automats.ielikt_produktu(udens)
+
+# 3. Sākam lietot automātu
+automats.parādīt_produktus()
+
+print("\n--- Mēģinājums 1: Nepietiek naudas ---")
+automats.ievietot_naudu(1.00)
+automats.pirkt("Coca-Cola")
+
+print("\n--- Mēģinājums 2: Veiksmīgs pirkums ---")
+automats.ievietot_naudu(0.50) # Pievienojam vēl naudu (kopā 1.50)
+automats.pirkt("Coca-Cola")
+
+print("\n--- Pārbaudām produktu daudzumu ---")
+automats.parādīt_produktus()
+
+print("\n--- Mēģinājums 3: Prece izpārdota ---")
+automats.ievietot_naudu(1.00)
+automats.pirkt("Selga")
+automats.pirkt("Selga") # Mēģinām pirkt vēlreiz

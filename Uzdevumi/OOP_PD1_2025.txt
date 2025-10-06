@@ -1,0 +1,158 @@
+
+1. Uzdevums: E-veikala preču pārvaldība
+Izveidojiet sistēmu, kas ļauj pārvaldīt preces nelielā interneta veikalā.
+
+Prasības:
+Izveidojiet klasi Prece ar šādām īpašībām (atribūtiem):
+nosaukums (string)
+cena (float)
+skaits_noliktava (integer)
+Klasei Prece pievienojiet metodi paradit_informaciju(), kas konsolē izdrukā pilnu informāciju par preci (piemēram, "Prece: Portatīvais dators, Cena: 899.99 EUR, Noliktavā: 15 gab.").
+Klasei Prece pievienojiet metodi pardot(), kas samazina skaits_noliktava par 1, ja prece ir pieejama. Ja preces nav noliktavā, metodei jāizdrukā atbilstošs paziņojums.
+Izveidojiet klasi Noliktava, kas uztur sarakstu ar visām Prece tipa objektu instancēm.
+Klasei Noliktava izveidojiet metodes:
+pievienot_preci(prece): Pievieno jaunu preci noliktavas sarakstam.
+paradit_visas_preces(): Izdrukā informāciju par visām noliktavā esošajām precēm, izmantojot Prece klases metodi paradit_informaciju().
+atrast_preci(nosaukums): Atgriež Prece objektu, ja prece ar norādīto nosaukumu tiek atrasta, pretējā gadījumā atgriež None.
+Testēšana: Izveidojiet vairākus Prece objektus, pievienojiet tos Noliktava objektam, attēlojiet visas preces, atrodiet konkrētu preci un mēģiniet to pārdot vairākas reizes.
+
+2. Uzdevums: Mūzikas atskaņošanas saraksts
+Izveidojiet sistēmu, kas simulē mūzikas atskaņošanas saraksta (playlist) darbību.
+
+Prasības:
+Izveidojiet klasi Dziesma ar īpašībām:
+nosaukums (string)
+izpilditajs (string)
+garums_sekundes (integer)
+Klasei Dziesma pievienojiet metodi __str__(), kas atgriež formatētu teksta rindu, piemēram: “Prāta Vētra - Lidmašīnas (245s)”.
+Izveidojiet klasi AtskanosanasSaraksts ar īpašībām:
+nosaukums (string)
+dziesmu_saraksts (saraksts, kurā glabāsies Dziesma objekti)
+Klasei AtskanosanasSaraksts izveidojiet metodes:
+pievienot_dziesmu(dziesma): Pievieno Dziesma objektu sarakstam.
+nonemt_dziesmu(dziesmas_nosaukums): Noņem dziesmu no saraksta pēc tās nosaukuma.
+paradit_sarakstu(): Izdrukā atskaņošanas saraksta nosaukumu un visas tajā esošās dziesmas (izmantojot Dziesma klases __repr__ metodi).
+aprekinat_kopejo_garumu(): Aprēķina un atgriež atskaņošanas saraksta kopējo garumu minūtēs un sekundēs (piemēram, "Kopējais garums: 15 minūtes un 43 sekundes").
+Testēšana: Izveidojiet vairākus Dziesma objektus un AtskanosanasSaraksts objektu. Pievienojiet dziesmas sarakstam, parādiet sarakstu, noņemiet kādu dziesmu un aprēķiniet kopējo garumu.
+
+3. Uzdevums: Transportlīdzekļu noma
+Izveidojiet sistēmu transportlīdzekļu nomas pārvaldībai, izmantojot mantošanu.
+
+Prasības:
+Izveidojiet bāzes klasi Transportlidzeklis ar kopīgām īpašībām:
+marka (string)
+modelis (string)
+gads (integer)
+nomas_maksa_diena (float)
+ir_pieejams (boolean, noklusējuma vērtība True)
+Bāzes klasei pievienojiet metodes:
+iznomat(): Maina statusu ir_pieejams uz False, ja transportlīdzeklis ir pieejams.
+atgriezt(): Maina statusu ir_pieejams uz True.
+paradit_info(): Izdrukā pamatinformāciju par transportlīdzekli.
+Izveidojiet divas apakšklases, kas manto no Transportlidzeklis:
+Automobilis: Papildus īpašība vietu_skaits (integer). Pārrakstiet (override) metodi paradit_info(), lai tā attēlotu arī vietu skaitu.
+Motocikls: Papildus īpašība motora_tilpums_cc (integer). Pārrakstiet metodi paradit_info(), lai tā attēlotu arī motora tilpumu.
+Izveidojiet klasi NomasPunkts, kas glabā sarakstu ar dažādiem transportlīdzekļiem (Automobilis un Motocikls objektiem).
+Klasei NomasPunkts izveidojiet metodes:
+pievienot_transportu(transportlidzeklis)
+paradit_pieejamos(): Izdrukā informāciju tikai par tiem transportlīdzekļiem, kas ir pieejami. Šai metodei jāizmanto katra objekta specifiskā paradit_info() metode (polimorfisms).
+Testēšana: Izveidojiet Automobilis un Motocikls objektus, pievienojiet tos NomasPunkts objektam. Attēlojiet visus pieejamos transportlīdzekļus. Iznomājiet vienu no tiem un pēc tam vēlreiz attēlojiet pieejamos.
+
+Teorētiskā daļa
+Atbildiet uz sekojošiem jautājumiem, sniedzot definīciju un paskaidrojumu saviem vārdiem. Kur nepieciešams, pievienojiet nelielu Python koda piemēru.
+
+Klase vs. Objekts (5 punkti)
+Izskaidrojiet, kas ir klase un kas ir objekts objektorientētajā programmēšanā.
+Sniedziet piemēru no reālās pasaules, kas ilustrē atšķirību (piemēram, "rasējums" un "ēka").
+
+Inkapsulēšana (Encapsulation)
+Kas ir inkapsulēšana un kāpēc tā ir svarīga OOP?
+Paskaidrojiet, kā Python var simulēt privātus atribūtus (piemēram, izmantojot _ vai __ prefiksu). Sniedziet koda piemēru, kur dati ir paslēpti un tiem var piekļūt tikai caur publiskām metodēm (piem., get_... un set_...).
+
+Mantošana (Inheritance)
+Kas ir mantošana? Paskaidrojiet jēdzienus "bāzes klase" (superclass) un "apakšklase" (subclass).
+Kādas ir priekšrocības, izmantojot mantošanu? Sniedziet koda piemēru, kur viena klase manto no otras.
+
+Polimorfisms (Polymorphism)
+Kas ir polimorfisms?
+Izskaidrojiet, kā tas ļauj dažādu klašu objektiem atbildēt uz vienu un to pašu metodes izsaukumu. Sniedziet koda piemēru (piemēram, izmantojot metožu pārrakstīšanu (method overriding), kā 3. praktiskajā uzdevumā).
+
+___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+1. Uzdevums: E-veikala preču pārvaldība (Kopā: 18 punkti)
+Klase Prece (7 punkti):
+__init__ metode (2 punkti): Klasei ir konstruktors ar visiem nepieciešamajiem atribūtiem (nosaukums, cena, skaits_noliktava).
+paradit_informaciju() metode (2 punkti): Metode korekti izdrukā formatētu tekstu ar visu informāciju par preci.
+pardot() metode (3 punkti): Metode samazina skaitu par 1 (1p). Ir pārbaude, vai prece ir noliktavā (1p). Tiek izdrukāts paziņojums, ja preces nav (1p).
+
+Klase Noliktava (7 punkti):
+__init__ metode (2 punkti): Klasei ir konstruktors, kas inicializē tukšu sarakstu preču glabāšanai.
+pievienot_preci() metode (1 punkts): Metode korekti pievieno Prece objektu sarakstam.
+paradit_visas_preces() metode (2 punkti): Metode iet cauri sarakstam un katram objektam izsauc tā paradit_informaciju() metodi.
+atrast_preci() metode (2 punkti): Metode meklē preci sarakstā pēc nosaukuma un atgriež objektu vai None.
+
+Testēšana (4 punkti):
+Objektu izveide (1 punkts): Ir izveidoti vismaz 3 Prece objekti un viens Noliktava objekts.
+Funkcionalitātes demonstrācija (3 punkti): Testa kods demonstrē preču pievienošanu, visu preču attēlošanu, konkrētas preces atrašanu un pārdošanas mēģinājumu.
+
+2. Uzdevums: Mūzikas atskaņošanas saraksts (Kopā: 21 punkts)
+Klase Dziesma (5 punkti):
+__init__ metode (2 punkti): Klasei ir konstruktors ar atribūtiem nosaukums, izpilditajs, garums_sekundes.
+__str__ metode (3 punkti): Ir realizēta __str__ metode, kas atgriež korekti formatētu teksta rindu.
+
+Klase AtskanosanasSaraksts (12 punkti):
+__init__ metode (2 punkti): Klasei ir konstruktors ar nosaukums un tukšu dziesmu sarakstu.
+pievienot_dziesmu() metode (1 punkts): Metode korekti pievieno Dziesma objektu sarakstam.
+nonemt_dziesmu() metode (3 punkti): Metode atrod dziesmu pēc nosaukuma (1p) un korekti to izdzēš no saraksta (2p).
+paradit_sarakstu() metode (2 punkti): Metode izdrukā saraksta nosaukumu un katras dziesmas informāciju, izmantojot __str__.
+aprekinat_kopejo_garumu() metode (4 punkti): Metode summē visu dziesmu garumus (1p), pareizi pārvērš sekundes minūtēs un sekundēs (2p) un atgriež formatētu tekstu (1p).
+
+Testēšana (4 punkti):
+Objektu izveide (1 punkts): Ir izveidoti vairāki Dziesma objekti un AtskanosanasSaraksts objekts.
+Funkcionalitātes demonstrācija (3 punkti): Testa kods demonstrē dziesmu pievienošanu, saraksta attēlošanu, dziesmas noņemšanu un kopējā garuma aprēķināšanu.
+
+3. Uzdevums: Transportlīdzekļu noma (Kopā: 30 punkti)
+Bāzes klase Transportlidzeklis (6 punkti):
+__init__ metode (2 punkti): Konstruktors ar visiem bāzes atribūtiem.
+iznomat() un atgriezt() metodes (2 punkti): Abas metodes korekti maina ir_pieejams statusu (1p par katru).
+paradit_info() metode (2 punkti): Metode izdrukā pamatinformāciju par transportlīdzekli.
+
+Apakšklase Automobilis (7 punkti):
+Korekta mantošana (1 punkts): Klase korekti manto no Transportlidzeklis.
+__init__ metode (3 punkti): Konstruktors izsauc bāzes klases konstruktoru (super().__init__()) (2p) un pievieno jaunu atribūtu vietu_skaits (1p).
+paradit_info() pārrakstīšana (3 punkti): Metode ir pārrakstīta (override), lai attēlotu gan bāzes informāciju, gan vietu_skaits.
+
+Apakšklase Motocikls (7 punkti):
+Korekta mantošana (1 punkts): Klase korekti manto no Transportlidzeklis.
+__init__ metode (3 punkti): Konstruktors izsauc super().__init__() (2p) un pievieno motora_tilpums_cc (1p).
+paradit_info() pārrakstīšana (3 punkti): Metode ir pārrakstīta, lai attēlotu gan bāzes informāciju, gan motora_tilpums_cc.
+
+Klase NomasPunkts (6 punkti):
+pievienot_transportu() metode (1 punkts): Metode korekti pievieno jebkuru Transportlidzeklis apakšklases objektu sarakstam.
+paradit_pieejamos() metode (5 punkti): Metode iet cauri sarakstam (1p), pārbauda ir_pieejams statusu (2p) un katram objektam izsauc tā specifisko paradit_info() metodi (polimorfisma demonstrācija) (2p).
+
+Testēšana (4 punkti):
+Objektu izveide (2 punkti): Ir izveidoti gan Automobilis, gan Motocikls objekti.
+Funkcionalitātes demonstrācija (2 punkti): Testa kods demonstrē pieejamo transportlīdzekļu attēlošanu pirms un pēc viena no tiem iznomāšanas.
+
+Teorētiskā daļa (Kopā: 22 punkti)
+1. Jautājums: Klase vs. Objekts (4 punkti):
+Klases definīcija ir skaidra un precīza (1p).
+Objekta definīcija ir skaidra un precīza (1p).
+Piemērs ir atbilstošs un viegli saprotams, ilustrējot atšķirību (2p).
+
+2. Jautājums: Iekapsulēšana (6 punkti):
+Definīcija skaidri paskaidro, kas ir iekapsulēšana (1p).
+Nozīme ir paskaidrota, minot, kāpēc datu slēpšana ir svarīga (2p).
+Koda piemērs ir korekts, ar privātu atribūtu (__) un publiskām get/set metodēm (3p).
+
+3. Jautājums: Mantošana (6 punkti):
+Definīcija skaidri paskaidro jēdzienus "bāzes klase" un "apakšklase" (2p).
+Priekšrocības ir izskaidrotas, minot vismaz vienu (piem., koda atkalizmantošana) (2p).
+Koda piemērs ir vienkāršs un korekts (2p).
+
+4. Jautājums: Polimorfisms (6 punkti):
+Definīcija skaidri izskaidro ideju (1p).
+Darbības princips ir paskaidrots, minot, kā dažādi objekti reaģē uz vienu un to pašu metodes izsaukumu (2p).
+Koda piemērs ir korekts, ilustrējot metožu pārrakstīšanu (method overriding) (3p).

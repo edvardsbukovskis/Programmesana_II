@@ -70,7 +70,7 @@ Testēšana (4 punkti):
 2. Uzdevums: Grāmatu plaukts (18 punkti)
 Klase Grāmata (5 punkti):
 __init__ metode (2 punkti): Konstruktors korekti inicializē nosaukums, autors un izdosanas_gads.
-__str__ metode (3 punkti):
+__repr__ metode (3 punkti):
 (1p) Metode ir definēta.
 (2p) Metode atgriež formatētu teksta rindu, kas satur visus trīs atribūtus.
 
@@ -80,7 +80,7 @@ pievienot_gramatu() metode (2 punkti): Metode korekti pievieno padoto Grāmata o
 
 paradit_visas_gramatas() metode (3 punkti):
 (1p) Metode iterē (iet cauri) grāmatu sarakstam.
-(2p) Katram objektam sarakstā tiek izsaukta tā __str__ metode (vai vienkārši print(objekts)).
+(2p) Katram objektam sarakstā tiek izsaukta tā __repr__ metode (vai vienkārši print(objekts)).
 
 atrast_gramatu_pec_autora() metode (3 punkti):
 (1p) Metode iterē cauri sarakstam.

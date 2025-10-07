@@ -15,12 +15,12 @@ Izveidojiet klasi Grāmata ar šādām īpašībām:
 nosaukums (string)
 autors (string)
 izdosanas_gads (integer)
-Klasei Grāmata pievienojiet __str__ metodi, kas atgriež skaisti formatētu teksta rindu, piemēram: "Kārlis Skalbe - 'Kaķīša dzirnavas' (1913)".
+Klasei Grāmata pievienojiet __repr__ metodi, kas atgriež skaisti formatētu teksta rindu, piemēram: "Kārlis Skalbe - 'Kaķīša dzirnavas' (1913)".
 Izveidojiet klasi Grāmatplaukts, kurai ir viena īpašība:
 gramatas (saraksts, kurā glabāsies Grāmata objekti)
 Klasei Grāmatplaukts pievienojiet šādas metodes:
 pievienot_gramatu(gramata): Pievieno Grāmata objektu sarakstam.
-paradit_visas_gramatas(): Izdrukā informāciju par visām grāmatām plauktā, izmantojot Grāmata klases __str__ metodi.
+paradit_visas_gramatas(): Izdrukā informāciju par visām grāmatām plauktā, izmantojot Grāmata klases __repr__ metodi.
 atrast_gramatu_pec_autora(autors): Atrod un izdrukā visas grāmatas, kuras sarakstījis norādītais autors.
 Testēšana: Izveidojiet vairākus Grāmata objektus un vienu Grāmatplaukts objektu. Pievienojiet grāmatas plauktam, attēlojiet visas grāmatas un atrodiet grāmatas pēc konkrēta autora.
 

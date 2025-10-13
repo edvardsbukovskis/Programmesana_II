@@ -75,7 +75,7 @@ Kādas ir priekšrocības, izmantojot mantošanu? Sniedziet koda piemēru, kur v
 
 Polimorfisms (Polymorphism)
 Kas ir polimorfisms?
-Izskaidrojiet, kā tas ļauj dažādu klašu objektiem atbildēt uz vienu un to pašu metodes izsaukumu. Sniedziet koda piemēru (piemēram, izmantojot metožu pārrakstīšanu (method overriding), kā 3. praktiskajā uzdevumā).
+Izskaidrojiet, kā tas ļauj dažādu klašu objektiem atbildēt uz vienu un to pašu metodes izsaukumu. Sniedziet koda piemēru (piemēram, izmantojot metožu pārrakstīšanu (method overriding/overloading)).
 
 ___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 

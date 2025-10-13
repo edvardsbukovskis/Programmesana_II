@@ -122,3 +122,220 @@ Papildu Izaicinājumi:
 Līmeņu sistēma: Pievieno varonim pieredzes punktus (XP). Pēc katra ienaidnieka sakaušanas varonis saņem XP. Sasniedzot noteiktu XP daudzumu, varonim paaugstinās līmenis, uzlabojot veselību vai uzbrukuma spēku.
 Inventārs: Izveido Prieksmets un Inventars klases. Varonis var atrast zobenus (palielina uzbrukumu) vai vairogus (samazina saņemto bojājumu).
 Vairāki varoņu tipi: Izveido jaunas klases, kas manto no Varonis, piemēram, Burvis (mazāk veselības, bet spēcīgas burvestības) un Karavīrs (daudz veselības).
+
+====================================================================================================================================================================================================================================================================
+
+==========================================================================================================================RISINĀJUMA PIEMĒRS========================================================================================================================
+
+
+import random
+import time # Pievienosim nelielas pauzes dramatiskākam efektam
+
+# === SOLIS 1: SPĒLES PAMATU IZVEIDE – KLASES UN OBJEKTI ===
+# Šī ir bāzes klase, kas definē jebkura tēla (varoņa vai ienaidnieka)
+# pamatīpašības un spējas.
+
+class Tēls:
+    """
+    Universāla klase jebkuram tēlam spēlē.
+    Satur vārdu, veselību, uzbrukuma spēku un pamatdarbības.
+    """
+    def __init__(self, vards, veseliba, uzbrukuma_speks):
+        self.vards = vards
+        self.veseliba = veseliba
+        self.max_veseliba = veseliba # Saglabājam maksimālo veselību, noderēs dzirām
+        self.uzbrukuma_speks = uzbrukuma_speks
+
+    def paradit_info(self):
+        """Izdrukā tēla pašreizējo statusu."""
+        print(f"{self.vards} | Veselība: {self.veseliba}/{self.max_veseliba}")
+
+    def ir_dzivs(self):
+        """Pārbauda, vai tēlam vēl ir veselība."""
+        return self.veseliba > 0
+
+    def uzbrukt(self, cits_tels):
+        """Veic uzbrukumu citam tēlam."""
+        print(f"⚔️  {self.vards} uzbrūk {cits_tels.vards}!")
+        time.sleep(1) # Pauze labākai lasāmībai
+        cits_tels.sanemt_bojajumu(self.uzbrukuma_speks)
+
+    def sanemt_bojajumu(self, daudzums):
+        """Samazina tēla veselību par noteiktu daudzumu."""
+        self.veseliba -= daudzums
+        print(f"💔 {self.vards} saņem {daudzums} bojājumus.")
+        if not self.ir_dzivs():
+            self.veseliba = 0 # Neļaujam veselībai būt negatīvai
+            print(f"☠️  {self.vards} ir sakauts!")
+        time.sleep(1)
+
+
+# === SOLIS 2: SPECIALIZĀCIJA – MANTOŠANA ===
+# Mēs veidojam specifiskākas klases, kas manto visu no 'Tēls',
+# bet pievieno jaunas, unikālas īpašības un spējas.
+
+class Varonis(Tēls):
+    """
+    Spēlētāja vadītais tēls. Manto no 'Tēls' un pievieno
+    spēju dzert veselības dziras.
+    """
+    def __init__(self, vards, veseliba, uzbrukuma_speks):
+        # super() izsauc 'Tēls' klases __init__ metodi, lai nav jāraksta viss no jauna
+        super().__init__(vards, veseliba, uzbrukuma_speks)
+        # SOLIS 5: Šo īpašību pārveidojam par "privātu", izmantojot '_'
+        self._dziras_skaits = 3
+
+    def dzer_dziru(self):
+        """Atjauno veselību, izmantojot dziru."""
+        if self._dziras_skaits > 0:
+            self._dziras_skaits -= 1
+            dziedesanas_daudzums = 30
+            self.veseliba += dziedesanas_daudzums
+            # Pārbaudām, lai veselība nepārsniegtu maksimumu
+            if self.veseliba > self.max_veseliba:
+                self.veseliba = self.max_veseliba
+            print(f"🧪 {self.vards} iedzer dziru, atgūstot {dziedesanas_daudzums} veselību.")
+            print(f"   Atlikušās dziras: {self._dziras_skaits}")
+            time.sleep(1)
+        else:
+            print("❌ Dziru vairs nav!")
+
+# Sākumā šī klase ir tikai "konteiners", lai atšķirtu ienaidniekus no varoņa.
+class Ienaidnieks(Tēls):
+    """Bāzes klase visiem ienaidniekiem."""
+    pass
+
+
+# === SOLIS 4: DAUDZVEIDĪBA – POLIMORFISMS ===
+# Veidojam dažādus ienaidnieku tipus, kas manto no 'Ienaidnieks'.
+# Pūķa klase pārraksta (override) 'uzbrukt' metodi, lai pievienotu īpašu uzvedību.
+
+class Goblins(Ienaidnieks):
+    """Vājš, bet bieži sastopams ienaidnieks."""
+    def __init__(self, vards="Goblins"):
+        super().__init__(vards, 40, 10) # Gobliniem vienmēr ir šādi parametri
+
+class Pukis(Ienaidnieks):
+    """Cietokšņa boss ar īpašu uzbrukumu."""
+    def __init__(self, vards="Pūķis Ugunsrūcējs"):
+        super().__init__(vards, 150, 25)
+
+    # Šī ir polimorfisma demonstrācija. 'Pukis' reaģē uz to pašu
+    # 'uzbrukt' izsaukumu citādāk nekā parasts 'Tēls'.
+    def uzbrukt(self, cits_tels):
+        """Pārrakstīta uzbrukuma metode ar 25% iespēju veikt īpašu uzbrukumu."""
+        if random.random() < 0.25: # 25% varbūtība
+            print(f"🔥 {self.vards} ievelk elpu un izpūš UGUNS STRŪKLU!")
+            time.sleep(1)
+            # Īpašais uzbrukums nodara dubultu bojājumu
+            cits_tels.sanemt_bojajumu(self.uzbrukuma_speks * 2)
+        else:
+            # Ja īpašais uzbrukums nenotiek, izsaucam standarta uzbrukumu no 'Tēls' klases
+            super().uzbrukt(cits_tels)
+
+
+# === SOLIS 3: SPĒLES DZINEKLIS – CĪŅAS LOĢIKA ===
+# Šī klase satur loģiku, kas vada pašu cīņas procesu.
+
+class Spele:
+    """Pārvalda spēles gaitu un cīņas ciklus."""
+    def cinas_cikls(self, varonis, ienaidnieks):
+        """
+        Galvenā metode, kas vada cīņu starp varoni un ienaidnieku.
+        Atgriež True, ja varonis uzvar, un False, ja zaudē.
+        """
+        print(f"\n💥💥💥 Sākas cīņa! {varonis.vards} pret {ienaidnieks.vards} 💥💥💥")
+        time.sleep(2)
+
+        while varonis.ir_dzivs() and ienaidnieks.ir_dzivs():
+            print("\n" + "="*30)
+            varonis.paradit_info()
+            ienaidnieks.paradit_info()
+            print("="*30)
+
+            # Varoņa gājiens
+            print("\nKo darīsi?")
+            print("1. Uzbrukt")
+            print(f"2. Dzert dziru ({varonis._dziras_skaits} atlikušas)")
+            izvele = input(" Tava izvēle: ")
+
+            if izvele == "1":
+                varonis.uzbrukt(ienaidnieks)
+            elif izvele == "2":
+                varonis.dzer_dziru()
+            else:
+                print("Nederīga izvēle! Tu zaudē gājienu.")
+                time.sleep(1)
+
+            # Ienaidnieka gājiens (ja tas vēl ir dzīvs)
+            if ienaidnieks.ir_dzivs():
+                ienaidnieks.uzbrukt(varonis)
+
+        # Cīņas noslēgums
+        print("\n" + "="*30)
+        if varonis.ir_dzivs():
+            print(f"🎉 Apsveicam! {varonis.vards} ir uzvarējis cīņā!")
+            return True
+        else:
+            print(f"💔 Diemžēl {varonis.vards} tika sakauts...")
+            return False
+
+
+# === SOLIS 5: SPĒLES APVIENOŠANA ===
+# 'main' funkcija ir mūsu spēles "režisors". Tā izveido visus objektus
+# un vada stāsta notikumu secību.
+
+def main():
+    """Galvenā funkcija, kas startē spēli un vada tās stāstu."""
+    
+    # 1. Objektu izveide
+    spele = Spele()
+    varonis = Varonis("Drošsirdis", 100, 20)
+    
+    # Stāsta sākums
+    print("="*50)
+    print("      LAIPNI LŪGTI SPĒLĒ")
+    print("  'Ēnzemes Cietokšņa Iekarotājs'")
+    print("="*50)
+    print(f"\nTu esi {varonis.vards}, drosmīgs karotājs. Tava misija - atbrīvot cietoksni.")
+    print("Tu atver smagās ozolkoka durvis un ieej pirmajā telpā...")
+    time.sleep(3)
+
+    # 2. Pirmā cīņa ar goblinu
+    goblins = Goblins("Riebeklis Goblins")
+    print(f"\nTavā priekšā izlec {goblins.vards}!")
+    
+    uzvara_pirmaja_cina = spele.cinas_cikls(varonis, goblins)
+
+    # 3. Pārbaudām iznākumu un turpinām stāstu
+    if uzvara_pirmaja_cina:
+        print("\nSakāvis goblinu, tu dodies dziļāk cietoksnī.")
+        print("Tu nonāc milzīgā troņa zālē. Tās vidū, uz zelta kaudzes...")
+        time.sleep(3)
+        print("...guļ milzīgs, sarkans pūķis!")
+
+        # Atjaunojam varoņa veselību pirms boss cīņas
+        varonis.veseliba = varonis.max_veseliba
+        print("\nTu atrodi spēka avotu un pilnībā atjauno veselību!")
+        
+        # 4. Otrā (boss) cīņa ar pūķi
+        pukis = Pukis()
+        uzvara_boss_cina = spele.cinas_cikls(varonis, pukis)
+
+        if uzvara_boss_cina:
+            print("\n" + "*"*50)
+            print("APSVEICAM! Tu esi sakāvis Pūķi un atbrīvojis Ēnzemi!")
+            print("Tavs vārds tiks ierakstīts leģendās!")
+            print("*"*50)
+        else:
+            print("\nPūķa spēks bija pārāk liels. Cietoksnis paliek tumsas varā.")
+            print("\nGAME OVER")
+    else:
+        print("\nTavs piedzīvojums beidzās pārāk ātri.")
+        print("\nGAME OVER")
+
+
+# Šī rinda pārbauda, vai fails tiek palaists tieši (nevis importēts).
+# Ja jā, tad izsauc 'main' funkciju, lai sāktu spēli.
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,124 @@
+
+Projekta Uzdevums: Programmēšanas RPG spēle
+
+
+Tavs uzdevums ir nevis vienkārši rakstīt kodu, bet gan radīt piedzīvojumu. Tu soli pa solim uzbūvēsi nelielu, bet funkcionējošu lomu spēli (RPG), kuru varēs spēlēt datora terminālī. Šajā ceļojumā tu apgūsi un pielietosi visus objektorientētās programmēšanas (OOP) pamatprincipus: klases, objektus, mantošanu, polimorfismu un inkapsulāciju.
+Spēles sižets: Seno Ēnzemes Cietoksni ir pārņēmis ļaunais Pūķis Ugunsrūcējs un viņa goblinu armija. Tava misija ir sakaut ienaidniekus un atbrīvot zemi no Pūķa tirānijas.
+
+
+Solis 1: Spēles Pamatu Izveide – Klases un Objekti
+Viss spēlē – gan tavs varonis, gan ienaidnieki – ir tēli. Tiem visiem ir kopīgas īpašības, piemēram, vārds un veselības punkti. Tāpēc sāksim ar vispārīgu klasi Tēls.
+
+Izveido klasi Tēls:
+Īpašības (atribūti):
+
+vards (string)
+veseliba (integer) – cik daudz bojājumu var saņemt.
+uzbrukuma_speks (integer) – cik daudz bojājumu nodara.
+Metodes (spējas):
+__init__(self, vards, veseliba, uzbrukuma_speks): Konstruktors, kas piešķir sākotnējās vērtības.
+paradit_info(self): Izdrukā tēla vārdu un atlikušo veselību.
+ir_dzivs(self): Atgriež True, ja tēla veselība ir lielāka par 0, citādi False.
+uzbrukt(self, cits_tels): Tēls uzbrūk citam tēlam. Šī metode izdrukā, kas kam uzbrūk, un pēc tam izsauc cits_tels metodi sanemt_bojajumu.
+sanemt_bojajumu(self, daudzums): Samazina tēla veselību par saņemto bojājumu daudzumu.
+
+Palīdzība:
+Metode uzbrukt varētu izskatīties apmēram šādi:
+
+def uzbrukt(self, cits_tels):
+    print(f"{self.vards} uzbrūk {cits_tels.vards}!")
+    cits_tels.sanemt_bojajumu(self.uzbrukuma_speks)
+
+
+Pārbaude: Izveido divus Tēls objektus – vienu varonim, otru ienaidniekam. Liec tiem cīnīties, pārmaiņus izsaucot uzbrukt metodi, līdz viena no tiem veselība nokrīt zem 0. Pēc katra uzbrukuma izdrukā abu tēlu informāciju.
+Solis 2: Specializācija – Mantošana (Inheritance)
+
+Mūsu varonis nav vienkārši "tēls", un arī ienaidnieki atšķiras. Izmantosim mantošanu, lai izveidotu specializētas klases, kas pārmanto visas Tēls īpašības un metodes, bet pievieno kaut ko unikālu.
+Izveido klasi Varonis, kas manto no Tēls:
+Varonis klasē nav nepieciešams no jauna definēt vards, veseliba utt., jo tas viss tiek saņemts no Tēls.
+Pievieno jaunu īpašību dziras_skaits (integer, sākumā 3).
+Pievieno jaunu metodi dzer_dziru(self), kas atjauno 20 veselības punktus un samazina dziras_skaits par 1. Pārliecinies, ka veselība nevar pārsniegt sākotnējo maksimumu (piemēram, 100).
+
+Izveido klasi Ienaidnieks, kas manto no Tēls:
+Šai klasei sākumā nav nepieciešamas papildu īpašības vai metodes, bet tā palīdzēs mums strukturēt kodu un vēlāk ieviest dažādus ienaidnieku tipus.
+
+Palīdzība:
+Lai izveidotu mantotu klasi un izsauktu tās vecāka (super) konstruktoru:
+
+class Varonis(Tēls):
+    def __init__(self, vards, veseliba, uzbrukuma_speks):
+        super().__init__(vards, veseliba, uzbrukuma_speks) # Izsauc Tēls konstruktoru
+        self.dziras_skaits = 3
+
+Solis 3: Spēles Dzineklis – Cīņas Loģika
+Tagad mums ir nepieciešama sistēma, kas pārvaldīs pašu spēles gaitu un cīņas procesu.
+
+Izveido klasi Spele:
+
+Izveido galveno metodi cinas_cikls(self, varonis, ienaidnieks): Šī metode saturēs visu cīņas loģiku.
+Cīņa turpinās while ciklā, kamēr abi – varonis un ienaidnieks – ir dzīvi (ir_dzivs() metode).
+
+Katrā cikla gājienā:
+Izdrukā abu cīnītāju statusu (paradit_info).
+Parādi lietotājam izvēlnes: "1. Uzbrukt", "2. Dzert dziru".
+Saņem lietotāja ievadi (input()).
+Ja izvēle ir "1", varonis uzbrūk ienaidniekam.
+Ja izvēle ir "2", varonis dzer dziru (ja tās ir pieejamas).
+Pēc varoņa gājiena, ja ienaidnieks joprojām ir dzīvs, tas uzbrūk varonim.
+Kad cikls beidzas, izdrukā paziņojumu par to, kurš ir uzvarējis.
+Pārbaude: Izveido Spele objektu, Varonis objektu un Ienaidnieks objektu. Palaid spēli, izsaucot speles_objekts.cinas_cikls(tavs_varonis, tavs_ienaidnieks).
+
+Solis 4: Daudzveidība – Polimorfisms (Polymorphism)
+Cīņa ar vienādiem ienaidniekiem kļūst garlaicīga. Pievienosim dažādus ienaidnieku tipus, kas uzvedas atšķirīgi, bet joprojām reaģē uz to pašu uzbrukt metodes izsaukumu. Tas ir polimorfisms darbībā!
+
+Izveido jaunas klases, kas manto no Ienaidnieks:
+Klase Goblins:
+Šim ienaidniekam ir maza veselība un neliels uzbrukuma spēks.
+Klase Pukis (Bosfights):
+Šim ir daudz veselības un liels uzbrukuma spēks.
+Pārraksti (override) uzbrukt metodi: Papildus parastam uzbrukumam, ar 25% varbūtību Pūķis var veikt īpašu "Uguns Elpas" uzbrukumu, kas nodara divreiz lielāku kaitējumu.
+
+Palīdzība:
+Lai realizētu varbūtību, vari izmantot random moduli:
+
+import random
+
+class Pukis(Ienaidnieks):
+    def uzbrukt(self, cits_tels):
+        if random.random() < 0.25:  # 25% iespēja
+            print(f"{self.vards} izmanto UGUNS ELPU!")
+            # Nodari dubultu bojājumu
+            cits_tels.sanemt_bojajumu(self.uzbrukuma_speks * 2)
+        else:
+            super().uzbrukt(cits_tels) # Izsauc parasto uzbrukumu no Tēls klases
+
+
+cinas_cikls metodei nekas nav jāmaina! Tā joprojām sauks ienaidnieks.uzbrukt(varonis), bet Python automātiski izvēlēsies pareizo metodi – Goblins parasto vai Pukis īpašo.
+
+Solis 5: Datu Slēpšana un Spēles Apvienošana – Inkapsulācija (Encapsulation)
+
+Labs programmēšanas stils paredz, ka objekta iekšējie dati nav tieši aizskarami no ārpuses. Simulēsim to ar inkapsulāciju, lai padarītu kodu drošāku un loģiskāku, un saliksim visu kopā vienā spēlējamā stāstā.
+Uzlabo Varonis klasi ar inkapsulāciju:
+Pārdēvē īpašību dziras_skaits par _dziras_skaits (ar pasvītru sākumā, kas ir pieņemts veids, kā norādīt, ka atribūts ir "privāts").
+Tiešas piekļuves vietā (varonis._dziras_skaits -= 1) tagad izmantosi jau esošo dzer_dziru metodi, kas ir publiska un kontrolē, kā šī vērtība mainās (piem., pārbauda, vai dziru skaits nav 0). Tas pasargā datus no nepareizas izmantošanas.
+
+Izveido galveno spēles funkciju main():
+
+Šī funkcija darbosies kā spēles režisors.
+Tajā:
+
+Izveido Spele objektu.
+Izveido Varonis objektu (piem., varonis = Varonis("Drošsirdis", 100, 15)).
+Izveido dažādus ienaidniekus (goblins1 = Goblins(...), pukis_boss = Pukis(...)).
+Izdrukā stāsta ievadu.
+Sāc pirmo cīņu: spele.cinas_cikls(varonis, goblins1).
+Pārbaudi, vai varonis pēc cīņas ir dzīvs. Ja jā, izdrukā stāsta turpinājumu un sāc cīņu ar nākamo ienaidnieku (bosu).
+Ja varonis zaudē, izdrukā "Spēle beigusies" un pārtrauc programmu.
+Ja varonis uzvar visus, izdrukā apsveikuma paziņojumu.
+Palaid main() funkciju pašās beigās, un tava spēle ir gatava!
+
+Papildu Izaicinājumi:
+
+Līmeņu sistēma: Pievieno varonim pieredzes punktus (XP). Pēc katra ienaidnieka sakaušanas varonis saņem XP. Sasniedzot noteiktu XP daudzumu, varonim paaugstinās līmenis, uzlabojot veselību vai uzbrukuma spēku.
+Inventārs: Izveido Prieksmets un Inventars klases. Varonis var atrast zobenus (palielina uzbrukumu) vai vairogus (samazina saņemto bojājumu).
+Vairāki varoņu tipi: Izveido jaunas klases, kas manto no Varonis, piemēram, Burvis (mazāk veselības, bet spēcīgas burvestības) un Karavīrs (daudz veselības).

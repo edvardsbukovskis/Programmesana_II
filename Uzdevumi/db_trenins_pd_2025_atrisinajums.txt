@@ -1,0 +1,73 @@
+-- 1. Izveidojam Kategorijas
+CREATE TABLE Kategorijas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nosaukums TEXT NOT NULL
+);
+
+-- 2. Izveidojam Preces (Saite uz Kategoriju)
+CREATE TABLE Preces (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nosaukums TEXT NOT NULL,
+    cena REAL NOT NULL,
+    kategorijas_id INTEGER,
+    FOREIGN KEY (kategorijas_id) REFERENCES Kategorijas(id)
+);
+
+-- 3. Izveidojam Klientus
+CREATE TABLE Klienti (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    vards TEXT NOT NULL,
+    uzvards TEXT NOT NULL,
+    epasts TEXT UNIQUE
+);
+
+-- 4. Izveidojam Piegādātājus
+CREATE TABLE Piegadataji (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    uznemums TEXT NOT NULL,
+    telefons TEXT
+);
+
+-- 5. Izveidojam Pasūtījumus (Saites uz Klientu un Piegādātāju)
+CREATE TABLE Pasutijumi (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    datums TEXT,
+    klienta_id INTEGER,
+    piegadataja_id INTEGER,
+    FOREIGN KEY (klienta_id) REFERENCES Klienti(id),
+    FOREIGN KEY (piegadataja_id) REFERENCES Piegadataji(id)
+);
+
+-- 6. STARPTABULA (Many-to-Many starp Pasūtījumiem un Precēm)
+CREATE TABLE PasutijumaPreces (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    pasutijuma_id INTEGER,
+    preces_id INTEGER,
+    daudzums INTEGER DEFAULT 1,
+    FOREIGN KEY (pasutijuma_id) REFERENCES Pasutijumi(id),
+    FOREIGN KEY (preces_id) REFERENCES Preces(id)
+);
+
+-- DATU IEVADE (Piemēri) ---
+
+INSERT INTO Kategorijas (nosaukums) VALUES ('Portatīvie datori'), ('Telefoni'), ('Austiņas');
+
+INSERT INTO Preces (nosaukums, cena, kategorijas_id) VALUES 
+('iPhone 13', 700.00, 2),
+('Samsung Galaxy', 650.00, 2),
+('Dell XPS', 1200.00, 1);
+
+INSERT INTO Klienti (vards, uzvards, epasts) VALUES 
+('Jānis', 'Bērziņš', 'janis@epasts.lv'),
+('Anna', 'Kalniņa', 'anna@epasts.lv');
+
+INSERT INTO Piegadataji (uznemums, telefons) VALUES ('DPD', '20202020'), ('Omniva', '20303030');
+
+-- Jānis pasūta (id 1) ar DPD (id 1)
+INSERT INTO Pasutijumi (datums, klienta_id, piegadataja_id) VALUES ('2023-10-27', 1, 1);
+
+-- Pasūtījumā ieliekam preces (Jānis nopirka iPhone un Dell datoru)
+-- Pieņemam, ka pasūtījuma ID ir 1, iPhone ID ir 1, Dell ID ir 3
+INSERT INTO PasutijumaPreces (pasutijuma_id, preces_id, daudzums) VALUES 
+(1, 1, 1), -- Viens iPhone
+(1, 3, 1); -- Viens Dell dators

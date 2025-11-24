@@ -1,0 +1,37 @@
+Interneta veikala datubāze
+Tēma: Izveidot datubāzi nelielam interneta veikalam, kas pārdod elektroniku. Sistēmai jāpārvalda informācija par klientiem, precēm, preču kategorijām, pasūtījumiem un piegādes kompānijām.
+  
+1. Daļa: ER modeļa projektēšana (Teorija & Zīmēšana)
+Uzdevums:draw.io izveidot ER (Entītiju relāciju) diagrammu.
+Solis 1: Definēt 5 entītijas (Tabulas)
+  
+Mums nepieciešamas šādas entītijas:
+Klienti (Customers)
+Preces (Products)
+Kategorijas (Categories) - piemēram, "Datori", "Telefoni".
+Pasūtījumi (Orders)
+Piegādātāji (Suppliers) - uzņēmumi, kas piegādā preces veikalam vai klientam.
+  
+Solis 2: Definēt relācijas (Saites)
+Mēģiniet uzzīmēt bultiņas un definēt, kāda veida saite tā ir (1:1, 1:M, M:M).
+Vienai Kategorijai var piederēt daudzas Preces (1:M).
+Viens Klients var veikt daudzus Pasūtījumus (1:M).
+Viens Piegādātājs var piegādāt daudzus Pasūtījumus (1:M).
+Svarīgi (M:M): Viens Pasūtījums var saturēt daudzas Preces, un viena Prece var būt daudzos Pasūtījumos.
+Hint: Šeit nepieciešama starptabula (Junction table), piemēram, PasūtījumaPreces.
+  
+Solis 3: Atribūti un Normalizācija (3NF)
+Pārliecinies, ka katrai tabulai ir:
+Primārā atslēga (PK) - parasti id.
+Ārējās atslēgas (FK) tur, kur tās nepieciešamas saišu veidošanai.
+Jautājums pārbaudei: Kāpēc mēs Kategorijas nosaukumu neglabājam Preces tabulā kā tekstu, bet veidojam atsevišķu tabulu? (Atbilde: Lai ievērotu normalizāciju un izvairītos no datu dublēšanās/kļūdām, ja mainās kategorijas nosaukums).
+  
+2. Daļa: SQL Implementācija (Praktiskā kodēšana)
+Izmantojot DB Browser for SQLite.
+  
+Uzdevums 2.1: Tabulu izveide (CREATE TABLE)
+  
+Uzraksti SQL komandas, lai izveidotu visas 5 tabulas + starptabulu. Atceries par datu tipiem (INTEGER, TEXT, REAL) un ierobežojumiem (PRIMARY KEY, NOT NULL).
+
+Uzdevums 2.2: Datu ievade (INSERT INTO)
+Ievadiet datus (vismaz 3 rindas katrā tabulā), ievērojot loģisko secību (vispirms Kategorijas un Klienti, tikai tad Pasūtījumi, jo Pasūtījumiem vajag eksistējošu Klienta ID).

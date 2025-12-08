@@ -3,8 +3,7 @@ CREATE TABLE GymMembership (
     MemberID INT,
     StartDate DATE,
     EndDate DATE,
-    IsActive BOOLEAN,
-    CONSTRAINT fk_MemberID FOREIGN KEY (MemberID) REFERENCES GymMember(MemberID)
+    IsActive BOOLEAN
 );
 
 -- Inserting sample membership data

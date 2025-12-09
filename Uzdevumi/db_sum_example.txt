@@ -1,16 +1,16 @@
 -- Creating the example table named 'fake_apps'
-CREATE TABLE fake_apps (
+CREATE TABLE fakeapps (
     app_id INTEGER PRIMARY KEY,
     app_name TEXT NOT NULL,
     downloads INTEGER NOT NULL
 );
 
 -- Inserting some sample data into the 'fake_apps' table
-INSERT INTO fake_apps (app_name, downloads) VALUES ('App1', 1000);
-INSERT INTO fake_apps (app_name, downloads) VALUES ('App2', 2500);
-INSERT INTO fake_apps (app_name, downloads) VALUES ('App3', 3000);
-INSERT INTO fake_apps (app_name, downloads) VALUES ('App4', 4500);
-INSERT INTO fake_apps (app_name, downloads) VALUES ('App5', 1200);
+INSERT INTO fakeapps (app_name, downloads) VALUES ('App1', 1000);
+INSERT INTO fakeapps (app_name, downloads) VALUES ('App2', 2500);
+INSERT INTO fakeapps (app_name, downloads) VALUES ('App3', 3000);
+INSERT INTO fakeapps (app_name, downloads) VALUES ('App4', 4500);
+INSERT INTO fakeapps (app_name, downloads) VALUES ('App5', 1200);
 
 
 

@@ -44,7 +44,7 @@ INSERT INTO Authors (Name, Country, BirthYear) VALUES
 
 -- Insert records into Books
 INSERT INTO Books (Title, Genre, PublishedYear, Price, AuthorID) VALUES 
-('Harry Potter and the Sorcerer\'s Stone', 'Fantasy', 1997, 19.99, 1),
+('Harry Potter and the Sorcerers Stone', 'Fantasy', 1997, 19.99, 1),
 ('A Game of Thrones', 'Fantasy', 1996, 22.99, 2),
 ('Murder on the Orient Express', 'Mystery', 1934, 14.99, 3),
 ('The Hobbit', 'Fantasy', 1937, 18.99, 4),

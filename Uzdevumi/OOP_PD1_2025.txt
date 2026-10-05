@@ -142,8 +142,8 @@ Klases definīcija ir skaidra un precīza (1p).
 Objekta definīcija ir skaidra un precīza (1p).
 Piemērs ir atbilstošs un viegli saprotams, ilustrējot atšķirību (2p).
 
-2. Jautājums: Iekapsulēšana (6 punkti):
-Definīcija skaidri paskaidro, kas ir iekapsulēšana (1p).
+2. Jautājums: Inkapsulēšana (6 punkti):
+Definīcija skaidri paskaidro, kas ir inkapsulēšana (1p).
 Nozīme ir paskaidrota, minot, kāpēc datu slēpšana ir svarīga (2p).
 Koda piemērs ir korekts, ar privātu atribūtu (__) un publiskām get/set metodēm (3p).
 

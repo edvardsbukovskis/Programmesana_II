@@ -1,0 +1,17 @@
+Praktiskais uzdevums: Relācija "Viens pret vienu" (One-to-One) un "Viens pret daudziem" (One-to-Many)
+Tēma: FOREIGN KEY, REFERENCES, One-to-One un One-to-Many saites.
+  
+Uzdevuma nosacījumi: Izveido tabulas:
+klases:
+  -klases_id (INTEGER PRIMARY KEY)
+  -nosaukums (TEXT NOT NULL, piem., '11.a')
+kabineti (One-to-One attiecība ar klases – katrai klasei ir tieši viens savs bāzes kabinets, un katrā kabinetā ir tikai viena bāzes klase):
+  -kabineta_id (INTEGER PRIMARY KEY)
+  -numurs (INTEGER NOT NULL)
+  -klases_id (INTEGER UNIQUE) – ārējā atslēga, kas atsaucas uz klases(klases_id).
+skoleni (One-to-Many attiecība ar klases – vienā klasē mācās daudzi skolēni):
+  -skolena_id (INTEGER PRIMARY KEY)
+  -vards (TEXT NOT NULL)
+  -klases_id (INTEGER) – ārējā atslēga, kas atsaucas uz klases(klases_id).
+    
+Aizpildi tabulas ar datiem: izveido 2 klases, katrai piesaisti savu kabinetu un pievieno kopā 4 skolēnus.

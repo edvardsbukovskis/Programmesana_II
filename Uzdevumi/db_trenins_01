@@ -1,0 +1,15 @@
+Praktiskais uzdevums: Pamata darbības ar tabulu (CRUD): CREATE TABLE, INSERT INTO, SELECT, ALTER TABLE, UPDATE, DELETE FROM.
+Konteksts: Videospēļu kataloga izveide un rediģēšana.
+  
+Uzdevuma nosacījumi:
+Izveido jaunu tabulu ar nosaukumu speles, kurā ir trīs kolonnas:
+  -id (vesels skaitlis – INTEGER)
+  -nosaukums(teksts – TEXT)
+  -izdosanas_gads(vesels skaitlis – INTEGER)
+    
+Ievieto tabulā 4 dažādus videospēļu ierakstus pēc savas izvēles (ar id no 1 līdz 4).
+Atlasīt un apskatīt visus datus no tabulas speles.
+Papildini tabulu speles, pievienojot jaunu kolonnu vertējums (decimālskaitlis – REAL).
+Atjaunini datus: divām no spēlēm piešķir vērtējumu (piemēram, 9.5 un 8.0), izmantojot to id.
+Izdzēs no tabulas visas spēles, kurām vērtējums joprojām nav norādīts (IS NULL).
+Izvadi gala rezultātu ar SELECT komandu, lai pārliecinātos, ka palikuši tikai 2 ieraksti.SQL

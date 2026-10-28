@@ -1,0 +1,15 @@
+Praktiskais uzdevums: Ierobežojumu (Constraints) pielietošana
+Tēma: PRIMARY KEY, UNIQUE, NOT NULL, DEFAULT.
+  
+Konteksts: Sporta kluba biedru reģistrācijas sistēma.
+Uzdevuma nosacījumi:
+Izveido tabulu biedri ar šādām kolonnām un ierobežojumiem:
+  -id – vesels skaitlis, primārā atslēga (PRIMARY KEY).
+  -vards – teksts, nedrīkst būt tukšs (NOT NULL).
+  -epasts – teksts, katram biedram unikāls (UNIQUE).
+  -abonementa_veids – teksts, ar noklusējuma vērtību 'Standarta' (DEFAULT).
+Pievieno pirmo biedru, norādot visus datus (tai skaitā abonementa veidu 'VIP').
+Pievieno otro biedru, nenorādot abonementa veidu (pārbaudi, vai automātiski iestatās 'Standarta').
+  
+Kļūdu testēšana: Pamēģini ievietot biedru ar tādu pašu epasts vērtību kā pirmajam biedram. Kādu kļūdu atgriež datubāze?Pamēģini ievietot biedru bez vārda (NULL).
+Kāpēc datubāze to neļauj?

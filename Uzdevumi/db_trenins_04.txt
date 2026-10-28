@@ -1,0 +1,17 @@
+Praktiskais uzdevums: Relācija "Daudzi pret daudziem" (Many-to-Many)
+Konteksts: Mūzikas straumēšanas platforma (Dziesmas un Atskaņošanas saraksti jeb Playlists).
+Vienā sarakstā var būt daudzas dziesmas, un viena dziesma var būt iekļauta vairākos sarakstos.
+Uzdevuma nosacījumi: 
+Izveido tabulu dziesmas:
+  -dziesmas_id (INTEGER PRIMARY KEY)
+  -nosaukums (TEXT NOT NULL)
+  -izpilditajs (TEXT NOT NULL)
+Izveido tabulu saraksti (Playlists):
+  -saraksta_id (INTEGER PRIMARY KEY)
+  -nosaukums (TEXT NOT NULL)
+    
+Izveido saistību tabulu sarakstu_dziesmas, kas realizē Many-to-Many relāciju:
+  -Tai jāsatur saraksta_id un dziesmas_id kolonnas.
+  -Abas kolonnas kopā veido kombinēto primāro atslēgu: PRIMARY KEY (saraksta_id, dziesmas_id).
+  -Definē abas ārējās atslēgas (FOREIGN KEY), kas atsaucas uz attiecīgajām tabulām.
+  -Ievieto 3 dziesmas, 2 atskaņošanas sarakstus (piem., 'Treniņam' un 'Atpūtai') un sasaisti tos tā, lai vismaz viena dziesma atrastos abos sarakstos.
